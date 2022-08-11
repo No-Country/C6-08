@@ -1,0 +1,30 @@
+{
+  "name": "hotelback",
+  "version": "1.0.0",
+  "description": "\"back-End Hotel\" ",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "start:dev": "nodemon sever.js"
+  },
+  "keywords": [
+    "Nodejs",
+    "express",
+    "sequelize",
+    "cripk",
+    "msql",
+    "JWT"
+  ],
+  "author": "c6-08-ft Emmanuel Morales, Pablo Rumualdo, Daniel Albanez, Carlos Jonathan, Santiago, Agustin, Alex Ruiz",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "nodemon": "^2.0.19",
+    "path": "^0.12.7",
+    "pg": "^8.7.3",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.21.3"
+  }
+}
