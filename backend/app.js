@@ -7,6 +7,7 @@ const { adminHotelRouter } = require('./routes/adminhotel')
 const app = express()
 
 app.use(express.json())
+app.use('/api/v1/docs', express.static(__dirname + '/docs'))
 app.use('/api/v1/adminhotel', adminHotelRouter)
 
 app.use('*', (req, res, next) => {
