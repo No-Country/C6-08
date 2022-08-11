@@ -17,38 +17,6 @@ tags:
   - name: reserva
     description: Endpoints de las reservas de hoteles.
 paths:
-  /auth/register:
-    post:
-      tags:
-        - auth
-      summary: Registra un nuevo usuario.
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/RegisterBody'
-      responses:
-        '201':
-          description: Request Exitosa
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  username:
-                    type: string
-                  id:
-                    type: number
-        '400':
-          description: Parametros faltantes o invalidos.
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  error:
-                    type: string
-                    example: password needed
   /auth/login:
     post:
       tags:
@@ -163,7 +131,7 @@ paths:
                     type: string
                     example: password needed
         404:
-          description: El usuario no esta logueado como admin
+          description: El usuario no esta logueado u hotelId inexistente.
           content:
             application/json:
               schema:
@@ -184,6 +152,12 @@ paths:
       responses:
         204:
           description: Hotel eliminado con exito.
+        404:
+          description: El usuario no esta logueado.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotAuthorizedError'
   /hoteles/{hotelId}/fechas:  #Revisar
     get:
       tags:
@@ -206,6 +180,8 @@ paths:
     post:
       tags:
       - review
+      security:
+      - bearerAuth: []
       parameters:
         - name: hotelId
           in: path
@@ -276,6 +252,98 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotFoundError'
+  /usuarios:
+    get:
+      tags:
+      - usuario
+      summary: Pide los usuarios del sistema
+      responses:
+        200:
+          description: Devuelve los usuarios correctamente
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Usuario'
+    post:
+      tags:
+      - usuario
+      summary: Agrega un usuario al sistema
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref : '#/components/schemas/RegisterBody'
+      responses:
+        201:
+          description: Usuario agregado con exito.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Usuario'
+        400:
+          description: Campos faltantes o invalidos.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestError'
+  /usuarios/{usuarioId}:
+    put:
+      tags:
+      - usuario
+      summary: Actualiza un usuario del sistema
+      security:
+      - bearerAuth: []
+      parameters:
+        - name: usuarioId
+          in: path
+          description: El id del usuario.
+          required: true
+          schema:
+            type: number
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref : '#/components/schemas/RegisterBody'
+      responses: 
+        200:
+          description: Usuario actualizado con exito
+        400:
+          description: Campos faltantes o invalidos.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestError'
+        404:
+          description: El usuario no esta logueado o usuarioId inexistente.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotAuthorizedError'
+    delete:
+      tags:
+      - usuario
+      summary: Elimina un usuario del sistema
+      security:
+      - bearerAuth: []
+      parameters:
+        - name: usuarioId
+          in: path
+          description: El id del usuario.
+          required: true
+          schema:
+            type: number
+      responses:
+        204:
+          description: Usuario eliminado con exito.
+        404:
+          description: El usuario no esta logueado o usuarioId inexistente.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotAuthorizedError'
   /usuarios/{usuarioId}/favoritos:
     post:
       tags:
@@ -463,6 +531,19 @@ components:
         TODO:
           type: string
           example: 'Definir implementacion y hacer el esquema de las fechas'
+    Usuario:
+      type: object
+      required:
+      - nombre
+      - apellido
+      - id
+      properties:
+        nombre:
+          type: string
+        apellido:
+          type: string
+        id:
+          type: number
   securitySchemes:
     bearerAuth:            # arbitrary name for the security scheme
       type: http
