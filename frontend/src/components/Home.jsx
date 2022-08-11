@@ -33,8 +33,8 @@ const Home = () => {
 
         <div className="form-container">
           <Row>
-            <Form className="form">
-              <Form.Group className="form-group">
+            <Form className="form" id="form">
+              <Form.Group className="form-group" id="form-group">
                 <Form.Control type="text" placeholder='🗺️ Prueba con "Bariloche"'></Form.Control>
                 <Form.Control type="text" placeholder="🧑 Personas"></Form.Control>
                 <Button variant="primary" className="search-button">

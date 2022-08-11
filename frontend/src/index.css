@@ -16,12 +16,12 @@
   border-radius: .75rem;
 }
 
-.form {
+#form {
   display: flex;
   height: 100%;
 }
 
-.form-group {
+#form-group {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -31,11 +31,11 @@
   transform: translateY(8%);
 }
 
-.form-group input {
+#form-group input {
    border: 1px solid #000;
 }
 
-.form-group button {
+#form-group button {
   margin: 0 auto;
   width: 80%;
 }
