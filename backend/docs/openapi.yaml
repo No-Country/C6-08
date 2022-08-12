@@ -16,6 +16,8 @@ tags:
     description: Endpoints de los usuarios.
   - name: reserva
     description: Endpoints de las reservas de hoteles.
+servers:
+- url: /api/v1
 paths:
   /auth/login:
     post:
