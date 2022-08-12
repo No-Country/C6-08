@@ -1,0 +1,52 @@
+.nombre-hotel{
+    margin-top: 10px;
+}
+
+.grid-img {
+    margin: 0 10%;
+    display: grid;
+    grid-template-columns: 500px 500px;
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 15px;
+    grid-row-gap: 10px;
+}
+
+.grid-group-1 {
+    grid-area: 1 / 1 / 3 / 2;
+}
+
+.grid-group-2 {
+    grid-area: 1 / 2 / 2 / 3;
+}
+
+.grid-group-3 {
+    grid-area: 2 / 2 / 3 / 3;
+}
+
+.img-primary {
+    max-width: 500px;
+    border-radius: 8% 0% 0% 8% / 10% 0% 0% 10%;
+}
+
+.img-secondary {
+    max-width: 245px;
+    margin-right: 5px;
+}
+
+.img-secondary-top{
+    border-radius: 0% 8% 0% 0% / 0% 10% 0% 0%;
+}
+
+.img-secondary-bottom{
+    border-radius: 0% 0% 8% 0% / 0% 0% 10% 0%;
+}
+
+.info-hotel{
+    width: 30%;
+    margin:3% 5%;
+}
+
+.flex-info{
+    display: flex;
+    justify-content: center;
+}
