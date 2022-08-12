@@ -1,23 +1,23 @@
-const express = require('express')
+const express = require('express');
 
-const { 
-    getAllAdminHotel,
-    getAdminHotelById,
-    postAdminHotel, 
-    patchAdminHotelById,
-    deleteAdminHotelById
-} = require('../controllers/adminhotel.controller')
+const {
+  getAllAdminHotel,
+  getAdminHotelById,
+  postAdminHotel,
+  patchAdminHotelById,
+  deleteAdminHotelById,
+} = require('../controllers/adminhotel.controller');
 
-const router = express.Router()
+const router = express.Router();
 
-router.get('/', getAllAdminHotel)
+router.get('/', getAllAdminHotel);
 
-router.get('/:id', getAdminHotelById)
+router.get('/:id', getAdminHotelById);
 
-router.post('/', postAdminHotel)
+router.post('/', postAdminHotel);
 
-router.patch('/:id', patchAdminHotelById)
+router.patch('/:id', patchAdminHotelById);
 
-router.delete('/:id', deleteAdminHotelById)
+router.delete('/:id', deleteAdminHotelById);
 
-module.exports = { adminHotelRouter : router}
+module.exports = { adminHotelRouter: router };
