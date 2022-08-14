@@ -20,7 +20,7 @@ function Registrar(){
     return(
         <div>
             <h1>Datos de Registro:</h1>
-            <Form onSubmit={handleSubmit(onSubmit)} className="form">
+            <Form onSubmit={handleSubmit(onSubmit)} className="form" >
                 <Form.Group className="mb-3" controlId="formBasicName">
                     <Form.Label>Nombre</Form.Label>
                     <Form.Control type="text" {...register("nombre", { required: true })}/>

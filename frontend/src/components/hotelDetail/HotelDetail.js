@@ -1,4 +1,4 @@
-import React from 'react'
+import React  from 'react';
 import "./hotelDetail.css"
 import ReserveCard from '../reserveCard/ReserveCard'
 
