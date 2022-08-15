@@ -1,6 +1,5 @@
 import Home from './Home'
-import Registrar from './registro'
-import Login from './login'
+import Forms from './formularios'
 import HotelDetail from './hotelDetail/HotelDetail'
 import {
   Routes,
@@ -13,8 +12,7 @@ import React  from 'react';
 function Public() {
   return (
       <Routes>
-        <Route path='/login' element={<Login  />} />
-        <Route path='/registrar' element={<Registrar />} />
+        <Route path='/forms' element={<Forms />} />
         <Route path='/' element={<Home />} />
         <Route path='/Detail' /*'/Detail/:id'*/ element={<HotelDetail />} />
       </Routes>
