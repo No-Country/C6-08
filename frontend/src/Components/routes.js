@@ -1,4 +1,4 @@
-import Home from './Home'
+import Home from './home'
 import Registrar from './registro'
 import Login from './login'
 import {
