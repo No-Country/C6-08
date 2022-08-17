@@ -8,7 +8,7 @@ function Menu(){
         <>
         <Navbar bg="light" expand="lg">
         <Container>
-          <Navbar.Brand href="#home" as={Link} to="/">Mi Empresa React App</Navbar.Brand>
+          <Navbar.Brand href="#home" as={Link} to="/"><h2 className='title'>Nombre<span>Empresa</span></h2></Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">

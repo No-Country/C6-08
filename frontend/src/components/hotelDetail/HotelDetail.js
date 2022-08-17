@@ -1,10 +1,11 @@
 import React  from 'react';
+import { Container } from 'react-bootstrap';
 import "./hotelDetail.css"
-import ReserveCard from '../reserveCard/ReserveCard'
+import ReserveCard from './reserveCard/ReserveCard'
 
 const HotelDetail = () => {
     return (
-        <>
+        <Container>
             {/* Nombre del alojamiento y algunos botones (Guardar como fav, compartir) */}
             <div className='nombre-hotel'>
                 <h2>Hotel Paraiso</h2>
@@ -45,7 +46,7 @@ const HotelDetail = () => {
                 </div>
             </div>
 
-        </>
+        </Container>
     )
 }
 

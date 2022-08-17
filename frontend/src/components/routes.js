@@ -1,10 +1,9 @@
 import Home from './Home'
-import Forms from './formularios'
+import Login from './login/Login'
 import HotelDetail from './hotelDetail/HotelDetail'
 import {
   Routes,
   Route,
-  Navigate
 } from "react-router-dom"
 import React  from 'react'; 
 
@@ -12,9 +11,9 @@ import React  from 'react';
 function Public() {
   return (
       <Routes>
-        <Route path='/forms' element={<Forms />} />
+        <Route path='/login' element={<Login />} />
         <Route path='/' element={<Home />} />
-        <Route path='/Detail' /*'/Detail/:id'*/ element={<HotelDetail />} />
+        <Route path='/detail' /*'/Detail/:id'*/ element={<HotelDetail />} />
       </Routes>
   );
 }

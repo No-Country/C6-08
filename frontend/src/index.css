@@ -32,10 +32,17 @@
 }
 
 #form-group input {
-   border: 1px solid #000;
+  border: 1px solid #000;
 }
 
 #form-group button {
   margin: 0 auto;
   width: 80%;
+}
+/* Estilo del menu */
+.title{
+  text-align: center;
+}
+.title span{
+  color: #346187;
 }
