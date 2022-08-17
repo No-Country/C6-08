@@ -12,14 +12,14 @@ function Menu(){
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
-              <Nav.Link href="#">
+              <Nav.Link href="#favs" as={Link} to="/favs">
                 <FaRegHeart className="me-2" />
                 Alojamientos Guardados
               </Nav.Link>
-              <Button href="#" className="ms-2">
+              <Button href="#cuenta" as={Link} to="/forms" className="ms-2">
                 Mi cuenta
               </Button>
-              <Button href="#" variant="outline-primary" className="ms-3">
+              <Button href="#hotel" as={Link} to="/propiedad" variant="outline-primary" className="ms-3">
                 Anuncia tu propiedad
               </Button>
             </Nav>
