@@ -1,7 +1,7 @@
 const { sequelize } =require('../util/database')
 const { DataTypes } =require('sequelize')
 
-const Hotel =sequelize.define('hotel', {
+const Hotel = sequelize.define('hotel', {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
@@ -32,6 +32,11 @@ const Hotel =sequelize.define('hotel', {
   long: {
     type: DataTypes.STRING(10),
     allowNull: false,
+  },
+  status: {
+    type: DataTypes.STRING(10),
+    allowNull: false,
+    defaultValue: 'active'
   }
 })
 
