@@ -1,16 +1,16 @@
-
-import 'bootstrap/dist/css/bootstrap.min.css';
-// import Home from './components/Home';
-import './App.css';
+import React from 'react';
 import {
   BrowserRouter as Router
 } from "react-router-dom"
 import Public from "./components/routes"
+import Menu from './components/Menu';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
     <div className="App">
       <Router>
+        <Menu />
         <Public />
       </Router>
     </div>

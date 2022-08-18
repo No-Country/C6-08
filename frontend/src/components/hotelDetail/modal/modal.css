@@ -1,0 +1,53 @@
+.overlay{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,.5);
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-container{
+    width: 500px;
+    min-height: 100px;
+    background-color: #fff;
+    position: relative;
+    border-radius: 5px;
+    box-shadow: rgba(100,100,111,0.2) 0px 7px 29px 0px;
+    padding: 20px;
+}
+
+.modal-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #E8E8E8;
+}
+
+.modal-header h3{
+    font-weight: 500;
+    font-size: 16px;
+    color: #3B6A7B;
+}
+
+.modal-cerrar{
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    width: fit-content;
+    border: none;
+    border-radius: 5px;
+    background: none;
+    display: flex;
+}
+
+.modal-cerrar:hover{
+    background: #f2f2f2;
+    color: #3B6A7B;
+}
