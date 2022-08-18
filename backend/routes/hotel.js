@@ -5,11 +5,12 @@ const {
   putHotel,
   deleteHotel
 } = require('../controllers/hotel.controller.js')
+const { authentification } = require('../middlewares/authentification')
 const hotelRouter = express.Router()
 
 hotelRouter.get('/', getAllHotels)
-hotelRouter.post('/', postHotel)
-hotelRouter.put('/:hotelId', putHotel)
-hotelRouter.delete('/:hotelId', deleteHotel)
+hotelRouter.post('/', [authentification, postHotel])
+hotelRouter.put('/:hotelId', [authentification, putHotel])
+hotelRouter.delete('/:hotelId', [authentification, deleteHotel])
 
 module.exports = { hotelRouter }
