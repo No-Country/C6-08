@@ -3,10 +3,9 @@ const jwt = require('jsonwebtoken');
 const dotenv = require('dotenv');
 
 const { User } = require('../models/users.model');
-// const { Order } = require('../models/orders.model');
-// const { Product } = require('../models/products.model');
+const { Order } = require('../models/orders.model');
+const { Hotel } = require('../models/hotel.model');
 
-// const { AdminHotel } = require('../models/users.model')
 const { catchAsync} = require('../util/catchAsync')
 const { AppError } = require('../util/AppError')
 const { filterObject } = require('../util/filterObject')
@@ -79,7 +78,7 @@ dotenv.config({ path: './config.env' });
     // console.log(currentUser.id);
     // const { id  } =req.params;
   
-    const allhotel = await Product.findAll({
+    const allhotel = await Hotel.findAll({
       where: { userId: currentUser.id, status: 'active' }
     });
   
@@ -119,7 +118,7 @@ dotenv.config({ path: './config.env' });
     });
   });
   
-  exports.getAllUsersOrder = catchAsync(async (req, res, nexr) => {
+  exports.getAllUsersOrder = catchAsync(async (req, res, next) => {
     const allOrders = await Order.findAll({
       where: { status: 'active' } // at the momment implement is needed change the status to purchased
     });
@@ -132,7 +131,7 @@ dotenv.config({ path: './config.env' });
     });
   });
   
-  exports.getAllUsersOrderbyId = catchAsync(async (req, res, nexr) => {
+  exports.getAllUsersOrderbyId = catchAsync(async (req, res, next) => {
     const { currentUser } = req;
     const orders = await Order.findAll({
       where: { id: currentUser.id, status: 'active' } // at the momment implement is needed change the status to purchased
