@@ -1,6 +1,10 @@
 const { Hotel } = require('../models/hotel.models')
 const { catchAsync } = require('../util/catchAsync')
 const { AppError } = require('../util/AppError')
+const {
+  isNonEmptyString,
+  isNumber
+} = require('../util/validators')
 
 const getAllHotels = catchAsync(async (req, res) => {
   const users = await Hotel.findAll({}) //TODO agregar queries
@@ -19,10 +23,19 @@ const hotelData = body => ({
   long: body.long
 })
 
+//TODO Validar que lat, long y costo tengan el formato correcto
+//TODO Ver si se puede hacer del lado de sequelize
+const validators = property => {
+  if(property === 'rooms')
+    return isNumber
+  else
+    return isNonEmptyString
+}
+
 const validateBody = body => {
   const properties = Object.keys(hotelData({}))
   for(const property of properties) {
-    if(!body[property])
+    if(!body[property] || !validators(property)(body[property]))
       throw new AppError(400, 'Some properties and/or their values are incorrect.')
   }
 }
