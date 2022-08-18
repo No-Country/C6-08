@@ -76,3 +76,8 @@
   display: flex;
   flex-direction: column;
 }
+
+small {
+  color: #5559;
+}
+

@@ -1,6 +1,6 @@
 import React from 'react';
 import HeroImage from './heroImage';
-import SearchForm from './searchForm';
+import SearchForm from './SearchForm';
 import "../css/home.css";
 
 const Home = () => {
