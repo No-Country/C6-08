@@ -1,7 +1,7 @@
 import Home from './Home'
 import Login from './login/Login'
 import HotelDetail from './hotelDetail/HotelDetail'
-import HotelFav from './hotelFav'
+import HotelFav from './HotelFav'
 import Propiedad from './propiedad'
 import {
   Routes,

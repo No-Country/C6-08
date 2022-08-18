@@ -46,7 +46,7 @@ const Propiedad = () => {
           <Form.Control placeholder="Lugar" type="text" />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicPhoto">
-          <Form.Control placeholder="Imagenes" type="photo"  />
+          <Form.Control placeholder="Imagenes" type="file"  />
 
         </Form.Group>
         <Alert variant={alert.variant}>{alert.text}</Alert>
