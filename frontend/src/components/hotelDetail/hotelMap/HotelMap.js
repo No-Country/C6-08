@@ -1,21 +1,33 @@
-// import React from 'react'
-// import { MapContainer, TileLayer, Marker } from "react-leaflet";
+import React, { useMemo } from "react";
+import { GoogleMap, useLoadScript, MarkerF } from "@react-google-maps/api";
+import { Wrapper } from "@googlemaps/react-wrapper";
+import './hotelMap.css'
 
-// const HotelMap = () => {
-//     return (
-//         <MapContainer
-//             className="markercluster-map"
-//             center={[51.0, 19.0]}
-//             zoom={4}
-//             maxZoom={18}
-//         >
-//             <TileLayer
-//                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-//                 attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-//             />
-//             <Marker position={[49.8397, 24.0297]} />
-//         </MapContainer>
-//     )
-// }
+export default function Home() {
+    const { isLoaded } = useLoadScript({
+        googleMapsApiKey: process.env.REACT_PUBLIC_GOOGLE_MAPS_API_KEY,
+    });
 
-// export default HotelMap
+    if (!isLoaded) {
+        return <div>Loading...</div>
+    } else {
+        return <Map />
+    }
+}
+
+function Map() {
+
+    const center = useMemo(() => ({ lat:10.314497935245198, lng:-75.5784140118229}), [])
+
+    return (
+        <Wrapper apiKey={process.env.REACT_PUBLIC_GOOGLE_MAPS_API_KEY}>
+            <GoogleMap
+                zoom={10}
+                center={center}
+                mapContainerClassName="map-container">
+                <MarkerF
+                    position={center} />
+            </GoogleMap>
+        </Wrapper>
+    )
+}

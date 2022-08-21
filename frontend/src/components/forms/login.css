@@ -16,9 +16,10 @@
     letter-spacing: 1.1px;
     width: fit-content;
     padding: 8px;
+    
 }
 
-.opcion-login:hover{
+.opcion-login:focus{
     border-bottom: 2px solid #4D8AA0;
     color: #4D8AA0;
 }
