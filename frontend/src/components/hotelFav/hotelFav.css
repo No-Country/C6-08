@@ -1,0 +1,25 @@
+section{
+    background: #FFFBF2;
+    height: 100vh;
+}
+
+.placeholder-favs{
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    align-items: center;
+    text-align: center;
+}
+
+.placeholder-favs img {
+    max-width: 530px;
+}
+
+.button-fav{
+    padding: 12px 16px;
+    background: #3B6A7B;
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    border-radius: 4px;
+}
