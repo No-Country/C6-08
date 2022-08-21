@@ -38,7 +38,7 @@ const ReserveCard = () => {
             <div className='card-header'>
                 <h4>Hotel</h4>
                 <HeartStraight size={28} weight={active ? "fill" : null} 
-                className={`favourite ${active ? "favourite-active" : null}`}
+                className={`favorite ${active ? "favorite-active" : null}`}
                 onClick={fillHeart}/>
             </div>
             <div className='container-inputs'>

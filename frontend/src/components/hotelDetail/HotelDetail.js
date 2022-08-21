@@ -4,7 +4,7 @@ import { Users, Bed, Bathtub, Check } from 'phosphor-react';
 import Modal from './modal/Modal';
 import ReserveCard from './reserveCard/ReserveCard'
 import "./hotelDetail.css"
-// import HotelMap from './hotelMap/HotelMap';
+import HotelMap from './hotelMap/HotelMap';
 const HotelDetail = () => {
 
     const [stateModal, setStateModal] = useState(false);
@@ -33,11 +33,18 @@ const HotelDetail = () => {
                 <div className='info-hotel'>
                     <h3>Anfitrion: Juan Perez</h3>
                     <div>
-                        <span><Users size={24} /> 10 personas </span>
-                        <span><Bed size={24} /> 4 dormitorios </span>
-                        <span><Bathtub size={24} /> 3 baños</span>
+                        <ul>
+                            <li>
+                                <span><Users size={24} /> 10 personas </span>
+                            </li>
+                            <li>
+                                <span><Bed size={24} /> 4 dormitorios </span>
+                            </li>
+                            <li>
+                                <span><Bathtub size={24} /> 3 baños</span>
+                            </li>
+                        </ul>
                     </div>
-
                     <hr />
                     <p>
                         Hit you unexpectedly climb leg leave fur on owners clothes sees bird in air,
@@ -77,11 +84,11 @@ const HotelDetail = () => {
                         </div>
                     </Modal>
                 </div>
-                <div>
+                <div className='location-container'>
                     <h3>Ubicación</h3>
-                    {/* <HotelMap/> */}
+                    <HotelMap/>
                 </div>
-
+                <div className='spacer'></div>
             </div>
 
         </Container>

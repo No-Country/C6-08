@@ -18,12 +18,12 @@
     row-gap: 10px;
 }
 
-.favourite {
+.favorite {
     cursor: pointer;
     transition: .3s;
 }
 
-.favourite-active {
+.favorite-active {
     color: red;
 }
 

@@ -2,7 +2,7 @@ import Home from './Home'
 import Login from './forms/Login'
 import HotelDetail from './hotelDetail/HotelDetail'
 import HotelFav from './HotelFav'
-import Propiedad from './propiedad'
+import Propiedad from './forms/Propiedad'
 import {
   Routes,
   Route,
