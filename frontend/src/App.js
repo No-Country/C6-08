@@ -3,7 +3,7 @@ import {
   BrowserRouter as Router
 } from "react-router-dom"
 import Public from "./components/Routes"
-import Menu from './components/Menu';
+import Menu from './components/menu/Menu'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {

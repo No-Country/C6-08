@@ -22,7 +22,7 @@ function Map() {
     return (
         <Wrapper apiKey={process.env.REACT_PUBLIC_GOOGLE_MAPS_API_KEY}>
             <GoogleMap
-                zoom={10}
+                zoom={13}
                 center={center}
                 mapContainerClassName="map-container">
                 <MarkerF

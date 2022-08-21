@@ -10,6 +10,7 @@ const HotelDetail = () => {
     const [stateModal, setStateModal] = useState(false);
 
     return (
+        <div className='container-hotel-detail'>
         <Container>
             {/* Nombre del alojamiento y algunos botones (Guardar como fav, compartir) */}
             <div className='nombre-hotel'>
@@ -33,7 +34,7 @@ const HotelDetail = () => {
                 <div className='info-hotel'>
                     <h3>Anfitrion: Juan Perez</h3>
                     <div>
-                        <ul>
+                        <ul  className='list-details'>
                             <li>
                                 <span><Users size={24} /> 10 personas </span>
                             </li>
@@ -92,6 +93,7 @@ const HotelDetail = () => {
             </div>
 
         </Container>
+        </div>
     )
 }
 

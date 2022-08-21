@@ -1,3 +1,8 @@
+.container-hotel-detail{
+    background: #FFFBF2;
+    height: 100vh;
+}
+
 .nombre-hotel {
     margin-top: 10px;
 }
@@ -44,6 +49,13 @@
 .info-hotel {
     width: 100%;
     margin: 5% 0;
+}
+
+.list-details{
+    padding-left: 0px;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
 }
 
 .flex-info {

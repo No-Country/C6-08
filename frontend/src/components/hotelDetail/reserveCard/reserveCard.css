@@ -1,7 +1,8 @@
 .container-card {
+    background: #F5F5F5;;
     margin: 15% 0;
     width: 350px;
-    border: 1px solid rgb(221, 221, 221);
+    border: 1px solid #323232;
     border-radius: 12px;
     padding: 24px;
     box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
@@ -16,6 +17,13 @@
     margin-top: 25px;
     display: grid;
     row-gap: 10px;
+}
+
+.container-inputs input {
+    background-color:  #F5F5F5;
+    border: 1px solid #323232;
+    padding: 8px;
+    border-radius: 5px;
 }
 
 .favorite {
