@@ -31,3 +31,53 @@ section{
 .button-fav:active{
     background: #315664;
 }
+
+/*----*/
+
+#card{
+    width: 32rem;
+    min-height:100px;
+    margin-bottom:10px;
+    height:"300px";
+    
+}
+
+#img{
+    width: 32rem;
+}
+
+
+
+#corazon{
+    position: relative;
+    top: -315px;
+    left: 0px;
+    border: 1px black solid;
+    background-color: rgb(148, 148, 142);
+}
+
+
+#nav{
+    background-color: rgb(219, 143, 29);
+}
+
+#date{
+    width: 16rem; 
+}
+
+#boton{
+    width: 16rem;
+    background-color: rgb(60, 107, 91);
+    height: max-content;
+}
+h5{
+    color: rgb(126, 138, 138);
+}
+h6{
+    color: rgb(126, 138, 138);
+}
+#contenido{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
