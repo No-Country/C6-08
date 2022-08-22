@@ -7,7 +7,7 @@ import './menu.css'
 function Menu() {
   return (
     <>
-      <Navbar bg="light" expand="lg">
+      <Navbar expand="lg">
         <Navbar.Brand href="#home" as={Link} to="/"><h2 className='title'>Nombre<span>Empresa</span></h2></Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
