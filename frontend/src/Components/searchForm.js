@@ -56,7 +56,7 @@ const SearchForm = () => {
   };
 
   return (
-    <Container>
+    <Container id="search-form-container">
       <Row>
         <Col>
           <div className="form-container-home-search">
