@@ -13,6 +13,7 @@ section{
 
 .placeholder-favs img {
     max-width: 530px;
+    height: 380px;
 }
 
 .button-fav{
@@ -58,7 +59,7 @@ section{
 
 
 #nav{
-    background-color: rgb(219, 143, 29);
+    background-color: #CAA090;
 }
 
 #date{
