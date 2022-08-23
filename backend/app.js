@@ -13,9 +13,12 @@ const { globalErrorHandler } = require('./controllers/error.controller')
 const { usersRouter } = require('./routes/users.routes');
 const { hotelRouter } = require('./routes/hotels.routes');
 const { cartsRouter } = require('./routes/carts.routes');
+const { checkboxesRouter } = require('./routes/checkboxes.routes');
+
 
 //util
 const { AppError } = require('./util/AppError')
+// const { Checkboxes } = require('./models/checkboxes.model')
 
 //init server
 const app = express()
@@ -40,8 +43,10 @@ app.use('*', cors());
 //Endpoints
 app.use('/api/v1/docs', express.static(__dirname + '/docs'))
 app.use('/api/v1/user', usersRouter)
-app.use('/api/v1/products', hotelRouter);
+app.use('/api/v1/hotel', hotelRouter);
 app.use('/api/v1/carts', cartsRouter);
+app.use('/api/v1/checkboxes', checkboxesRouter);
+
 
 
 app.use('*', (req, res, next) => {
