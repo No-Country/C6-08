@@ -33,6 +33,7 @@
 .button-property:active{
     background: #b8b8b8;
     color: #4c8da4;
+    border-color: #4c8da4;
 }
 
 .container-links {
