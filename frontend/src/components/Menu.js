@@ -16,7 +16,7 @@ function Menu(){
                 <FaRegHeart className="me-2" />
                 Alojamientos Guardados
               </Nav.Link>
-              <Button href="#cuenta" as={Link} to="/forms" className="ms-2">
+              <Button href="#cuenta" as={Link} to="/login" className="ms-2">
                 Mi cuenta
               </Button>
               <Button href="#hotel" as={Link} to="/propiedad" variant="outline-primary" className="ms-3">

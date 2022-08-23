@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import Container from 'react-bootstrap/esm/Container';
-import Button from 'react-bootstrap/Button';
+import { HeartStraight } from 'phosphor-react';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import "./reserveCard.css"
@@ -28,30 +27,33 @@ const ReservePicker = () => {
 };
 
 const ReserveCard = () => {
+    const [active, setActive] = useState(false);
+    const fillHeart = (e) => {
+        setActive(!active)
+    }
+
     let nightPrice = 150
     return (
-        <Container className='container-card'>
-            <div>
-                <p>${nightPrice} por noche</p>
+        <div className='container-card'>
+            <div className='card-header'>
+                <h4>Hotel</h4>
+                <HeartStraight size={28} weight={active ? "fill" : null} 
+                className={`favourite ${active ? "favourite-active" : null}`}
+                onClick={fillHeart}/>
             </div>
-            <div>
+            <div className='container-inputs'>
                 <ReservePicker />
-                <Button variant="primary">Reservar</Button>{' '}
+                <input type="number" placeholder="Personas" min="1" max="10"/>
+                <button className='button-reserve'>Reservar</button>
             </div>
             <div className='info-prices'>
-                    <p>${nightPrice} por 3 noches</p>
-                    <p>$450</p>
-                
-                    <p>Tarifa por limpieza</p>
-                    <p>$40</p>
-                
-                    <p>Tarifa por servicio</p>
-                    <p>$0</p>
+                <span>Precio por noche</span>
+                <span className='price'>${nightPrice}</span>
+                <hr/>
+                <span>Total:</span> 
+                <span className='price'>${nightPrice}</span>
             </div>
-            <div>
-                <h5>Total: $490</h5>
-            </div>
-        </Container>
+        </div>
     )
 }
 

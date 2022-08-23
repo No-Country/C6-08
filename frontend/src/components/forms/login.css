@@ -2,7 +2,7 @@
     text-align: center;
 }
 .title span{
-    color: #346187;
+    color: #4D8AA0;
 }
 
 .container-boton{
@@ -19,14 +19,14 @@
 }
 
 .opcion-login:hover{
-    border-bottom: 2px solid #346187;
-    color: #346187;
+    border-bottom: 2px solid #4D8AA0;
+    color: #4D8AA0;
 }
 
 .login-input{
     padding: 12px;
-    background-color: rgb(240, 240, 240);
-    border: 1px solid grey;
+    background-color: #F5F5F5;
+    border: 1px solid #3A3A3A;
     border-radius: 0.35rem;
 }
 
@@ -37,10 +37,15 @@
     background-color: gray;
     font-weight: bold;
     color: white;
+    transition: 400ms;
+}
+
+.boton-submit:hover{
+    background-color: #4D8AA0;
 }
 
 .boton-submit:active{
-    background-color: rgb(102, 102, 102);
+    background-color: #3e7082;
 }
 
 .container-login{
@@ -60,5 +65,5 @@
 
 .group-input input{
     width: 48%;
-
+    
 }

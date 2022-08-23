@@ -1,8 +1,8 @@
-import Home from './Home'
-import Login from './login/Login'
+import Home from './home'
+import Login from './forms/Login'
 import HotelDetail from './hotelDetail/HotelDetail'
 import HotelFav from './hotelFav'
-import Propiedad from './propiedad'
+import Propiedad from './forms/Propiedad'
 import {
   Routes,
   Route,
