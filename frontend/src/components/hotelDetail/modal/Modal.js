@@ -9,7 +9,7 @@ const Modal = ({ children, state, setState }) => {
                 <div className='overlay'>
                     <div className='modal-container'>
                         <div className='modal-header'>
-                            <h3>Servicios disponibles</h3>
+                            
                         </div>
                         <button className='modal-cerrar' onClick={() => setState(false)}>
                             <X size={20} />

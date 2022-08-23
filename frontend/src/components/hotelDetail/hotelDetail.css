@@ -100,14 +100,48 @@
     border: 1px solid #3B6A7B;
     color: #3B6A7B;
     font-weight: 700;
+    font-family: 'Karla', sans-serif;
     font-size: 16px;
     line-height: 120%;
+}
+
+.button-services:active{
+    background: #d5d5d5;
+    color: #4c8da4;
 }
 
 .location-container{
     grid-area: 2 / 1 / 3 / 3;
 }
 
+.owner-info{
+    margin-top: 20px;
+}
+
+.owner-info p{
+    font-size: 16px;
+}
+
+.container-pfp{
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.hotel-pfp{
+    border-radius: 25%;
+    width: 80px;
+    height: 80px;
+}
+
+.container-info-owner{
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
 .spacer{
-    height: 100px;
+    height: 400px;
 }
