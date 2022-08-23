@@ -1,4 +1,4 @@
-import Home from './Home'
+import Home from './Home/Home'
 import Login from './forms/Login'
 import HotelDetail from './hotelDetail/HotelDetail'
 import HotelFav from './HotelFav'
