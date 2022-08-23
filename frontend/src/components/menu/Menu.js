@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar, Container, Nav } from 'react-bootstrap';
+import { Navbar, Nav } from 'react-bootstrap';
 import { FaRegHeart } from 'react-icons/fa';
 import { Link } from "react-router-dom";
 import './menu.css'

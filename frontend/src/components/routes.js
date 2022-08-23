@@ -1,7 +1,8 @@
 import Home from './Home/Home'
 import Login from './forms/Login'
 import HotelDetail from './hotelDetail/HotelDetail'
-import HotelFav from './hotelFav/HotelFav'
+import HotelFav from './hotel/HotelFav'
+import Hotel from './hotel/Hotel'
 import Propiedad from './forms/Propiedad'
 import {
   Routes,
@@ -15,7 +16,8 @@ function Public() {
       <Routes>
         <Route path='/login' element={<Login />} />
         <Route path='/favs' element={<HotelFav />} />
-        <Route path='/propiedad' /*'/propiedad/:id'*/ element={<Propiedad />} />
+        <Route path='/propiedad' element={<Propiedad />} />
+        <Route path='/hotel' /*'/propiedad/:busqueda'*/ element={<Hotel />} />
         <Route path='/' element={<Home />} />
         <Route path='/detail' /*'/Detail/:id'*/ element={<HotelDetail />} />
       </Routes>

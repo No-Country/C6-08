@@ -1,7 +1,8 @@
 import { useForm } from "react-hook-form";
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import { Form, Button, Alert, Container } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.css';
+import { MDBCheckbox } from 'mdb-react-ui-kit';
 
 const Propiedad = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -35,6 +36,15 @@ const Propiedad = () => {
         <Form.Group className="mb-3" controlId="formBasicDescription">
           <Form.Label className="opcion-login">Detalles</Form.Label>
           <Form.Control placeholder="Descripcion" as="textarea" rows={3} className="login-input" {...register("description", { required: true })} />
+          <Form.Label className="opcion-login">Contiene:</Form.Label>
+          <>
+            <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Cocina' />
+            <MDBCheckbox name='flexCheck' value='' id='flexCheckChecked' label='Wi-fi' />
+            <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Balcon' />
+            <MDBCheckbox name='flexCheck' value='' id='flexCheckChecked' label='Jacuzzi' />
+            <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Aire Acondicionado' />
+            <MDBCheckbox name='flexCheck' value='' id='flexCheckChecked' label='Frigobar' />
+          </>
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPlace">
