@@ -3,7 +3,7 @@ import { Carousel } from 'react-bootstrap';
 
 const HeroImage = () => {
   return (
-    <Carousel fade>
+    <Carousel fade id="carousel-home">
       
       <Carousel.Item className="carousel-item">
         <img className="d-block w-100" src="https://placeimg.com/640/480/animals" alt="Bariloche" />

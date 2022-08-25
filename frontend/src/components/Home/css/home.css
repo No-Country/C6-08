@@ -124,3 +124,7 @@ small {
   color: black;
   font-weight: 400;
 }
+
+#carousel-home a{
+  display: none;
+}
