@@ -74,7 +74,7 @@ const SearchForm = () => {
                 </div>
                 <div className='container-input-search'>
                   <Users size={24} className="me-2" />
-                  <Dropdown className="d-inline mx-2" autoClose="outside">
+                  <Dropdown id="people-button" className="d-inline mx-2" autoClose="outside">
                     <Dropdown.Toggle id="dropdown-autoclose-outside" md={4}>
                       Selecciona la cantidad de personas
                     </Dropdown.Toggle>
