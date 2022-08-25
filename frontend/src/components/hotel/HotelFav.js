@@ -55,66 +55,55 @@ const HotelFav = () => {
   }
 
   return (
-    <section className="home">
-      <div id="contenedor">
-        <Navbar id="nav" variant="dark">
-          <Container display="flex">
-            <Nav >
-              <Nav.Item>
-                <Nav.Link>
-                  <ReservePicker id="date" />
-                </Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link>
-                  <Button id="boton" variant="primary">Comprobar disponibilidad</Button>
-                </Nav.Link>
-              </Nav.Item>
-            </Nav>
-          </Container>
+    <div className="container-favs-page">
+      <div>
+        <div className="container-search">
+          <ReservePicker/>
+          <button className="button-fav-search">Comprobar disponibilidad</button>
+        </div>
 
-        </Navbar>
         {listadoHoteles.length === 0
           ?
           <div className='placeholder-favs'>
             <h2>Nada por aqui... todavia</h2>
             <img src='/img/hotel_fav.jpg' alt='hoteles favoritos' />
             <p>Parece que tu lista de alojamientos guardados está vacía.</p>
-            <p>Mientras buscas, pulsa el icono del corazón en el alojamiento que te guste,<br/>
+            <p>Mientras buscas, pulsa el icono del corazón en el alojamiento que te guste,<br />
               así lo guardas para verlo más tarde.</p>
             <a href="/" className='button-fav'> Empezar a buscar </a>
           </div>
           :
           <div>
             <Container>
-          <h1>Alojamientos Guardados</h1>
-          <Row>
-          {listadoHoteles.map(listadoHotel =>
-            <Col >
-              <Card id="card">
-                <Card.Img variant="top" src={""} 
-                  id="img" />
-                <HeartStraight size={28} weight={active ? "fill" : null}
-                    className={`favorite ${active ? "favorite-active" : null}`}
-                    onClick={fillHeart} id="corazon"/>
-                <Card.Body >
-                  <Card.Text >
-                    <div id="contenido">
-                      <Card.Title as={Link} to={'/detail/'} style={{ maxHeight: "25px" }}><h4 >Hotel</h4></Card.Title>
-                      <h4>$precio</h4>
-                    </div>
-                    <h5>ubicacion</h5>
-                    <h5>tags</h5>
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-            </Col>
-          )}
-          
-          </Row>      
-        </Container>
+              <h1>Alojamientos Guardados</h1>
+              <Row>
+                {listadoHoteles.map(listadoHotel =>
+                  <Col >
+                    <Card id="card">
+                      <Card.Img variant="top" src={""}
+                        id="img" />
+                      <HeartStraight size={28} weight={active ? "fill" : null}
+                        className={`favorite ${active ? "favorite-active" : null}`}
+                        onClick={fillHeart} id="corazon" />
+                      <Card.Body >
+                        <Card.Text >
+                          <div id="contenido">
+                            <Card.Title as={Link} to={'/detail/'} style={{ maxHeight: "25px" }}><h4 >Hotel</h4></Card.Title>
+                            <h4>$precio</h4>
+                          </div>
+                          <h5>ubicacion</h5>
+                          <h5>tags</h5>
+                        </Card.Text>
+                      </Card.Body>
+                    </Card>
+                  </Col>
+                )}
+
+              </Row>
+            </Container>
           </div>
-        }{/*
+        }
+        {/* 
         <Container>
           <h1>Hoteles Favoritos:</h1>
           <Row>
@@ -124,14 +113,14 @@ const HotelFav = () => {
                   id="img" />
                 <HeartStraight size={28} weight={active ? "fill" : null}
                   className={`favorite ${active ? "favorite-active" : null}`}
-                  onClick={fillHeart} id="corazon" />
+                onClick={() => fillHeart()} id="corazon" />
 
                 <Card.Body id="body">
-                  <Card.Text >
+                <Card.Text >
                     <div id="contenido">
                       <Card.Title as={Link} to={'/detail/'} style={{ maxHeight: "25px" }}><h4 >Hotel</h4></Card.Title>
                       <h4>$precio</h4>
-                    </div>
+                      </div>
                     <h5>ubicacion</h5>
                     <h6>tags</h6>
                   </Card.Text>
@@ -160,9 +149,9 @@ const HotelFav = () => {
             </Col>
           </Row>
         </Container>
-*/}
+      */}
       </div>
-    </section>
+    </div>
 
   );
 };
