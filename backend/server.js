@@ -1,6 +1,7 @@
-const { sequelize } = require('./util/database')
 const { app } = require('./app')
-// const { initModels } = require('./utils/initModels');
+//util
+const { sequelize } = require('./util/database')
+const { initModels } = require('./util/initModels');
 
 sequelize
     .authenticate()
@@ -8,7 +9,7 @@ sequelize
     .catch(error => console.log(error))
 
 // Models relations
-// initModels();
+initModels();
 
 sequelize
     .sync()

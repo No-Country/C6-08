@@ -2,10 +2,10 @@
 // const { Hotel } = require('../models/hotel.model');
 // const { User } = require('../models/users.model');
 
-// Utils
+// Util
 const { Checkboxes } = require('../models/checkboxes.model');
-const { catchAsync } = require('../utils/catchAsync');
-const { filterObj } = require('../utils/filterObj');
+const { catchAsync } = require('../util/catchAsync');
+const { filterObj } = require('../util/filterObject');
 
 exports.getAllCheckboxes = catchAsync(async (req, res, next) => {
   const checkboxes = await Checkboxes.findAll({

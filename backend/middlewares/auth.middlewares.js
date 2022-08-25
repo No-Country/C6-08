@@ -6,8 +6,8 @@ const { promisify } = require('util');
 const { User } = require('../models/users.model');
 
 // Utils
-const { AppError } = require('../utils/appError');
-const { catchAsync } = require('../utils/catchAsync');
+const { AppError } = require('../util/AppError');
+const { catchAsync } = require('../util/catchAsync');
 
 dotenv.config({ path: './config.env' });
 

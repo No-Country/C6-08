@@ -1,8 +1,8 @@
 const { Cart } = require('../models/carts.model');
 const { Hotel } = require('../models/hotel.model');
 
-const { AppError } = require('../utils/appError');
-const { catchAsync } = require('../utils/catchAsync');
+const { AppError } = require('../util/AppError');
+const { catchAsync } = require('../util/catchAsync');
 
 exports.cartExists = catchAsync(async (req, res, next) => {
   const { id } = req.params;

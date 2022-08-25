@@ -1,8 +1,8 @@
 const { body, validationResult } = require('express-validator');
 
 // Util
-const { AppError } = require('../utils/appError');
-const { catchAsync } = require('../utils/catchAsync');
+const { AppError } = require('../util/AppError');
+const { catchAsync } = require('../util/catchAsync');
 
 // User validators
 

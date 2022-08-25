@@ -3,7 +3,7 @@ const express = require('express');
 const {
   getAllHotel,
   createHotel,
-  getHoteltById,
+  getHotelById,
   updateHotelPatch,
   deleteHotel
 } = require('../controllers/hotels.controller');
@@ -27,7 +27,7 @@ router.post('/', createHotelValidators, validateResult, createHotel);
 
 router.use('/:id', hotelExists)
       .route('/:id')
-      .get(hotelOwner, getHoteltById)
+      .get(hotelOwner, getHotelById)
       .patch( hotelOwner, updateHotelPatch)
       .delete( hotelOwner, deleteHotel)
 

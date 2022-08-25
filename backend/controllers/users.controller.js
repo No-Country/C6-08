@@ -1,4 +1,4 @@
-const bcrypt = require('bcryptjs')
+const bcryptjs = require('bcryptjs')
 const jwt = require('jsonwebtoken');
 const dotenv = require('dotenv');
 
@@ -10,7 +10,7 @@ const { catchAsync} = require('../util/catchAsync')
 const { AppError } = require('../util/AppError')
 const { filterObject } = require('../util/filterObject')
 
-dotenv.config({ path: './config.env' });
+dotenv.config({ path: '../config.env' });
 
   exports.getAllUsers = catchAsync(async (req, res, next) => {
     const users = await User.findAll({
@@ -97,8 +97,8 @@ dotenv.config({ path: './config.env' });
   exports.updateUser = catchAsync(async (req, res, next) => {
     const { user } = req;
   
-    const data = filterObj(req.body, 'userName', 'email');
-  
+    const data = filterObject(req.body, 'userName', 'email');
+
     await user.update({ ...data });
   
     res.status(201).json({

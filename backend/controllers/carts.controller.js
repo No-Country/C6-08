@@ -8,8 +8,8 @@ const { Order } = require('../models/orders.model');
 const { Op } = require('sequelize');
 
 // utils
-const { catchAsync } = require('../utils/catchAsync');
-const { AppError } = require('../utils/appError');
+const { catchAsync } = require('../util/catchAsync');
+const { AppError } = require('../util/AppError');
 
 exports.getAllCart = catchAsync(async (req, res, next) => {
   const cart = await Cart.findAll({
@@ -85,7 +85,7 @@ exports.addProduct = catchAsync(async (req, res, next) => {
     });
     const newHotelInCart = await HotelInCart.create({
       cartId: newCart.id,
-      hoteltId: hotelId,
+      hotelId: hotelId,
       quantity: quantity
     });
   } else {
@@ -256,3 +256,4 @@ exports.remove_ProductFromCart = catchAsync(async (req, res, next) => {
 
   res.status(204).json({ status: 'success' });
 });
+
