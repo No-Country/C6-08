@@ -74,18 +74,7 @@ const HotelDetail = () => {
                     </div>
                     <div>
                         <ReserveCard />
-                        <Modal state={stateModal} setState={setStateModal}>
-                            <div className='container-services'>
-                                <Check size={24} /><span>Cocina</span>
-                                <Check size={24} /><span>Lavavajilla</span>
-                                <Check size={24} /><span>Sala de fitness</span>
-                                <Check size={24} /><span>Aire acondicionado</span>
-                                <Check size={24} /><span>Lavadora de ropa</span>
-                                <Check size={24} /><span>Wi-fi</span>
-                                <Check size={24} /><span>Oficina</span>
-                                <Check size={24} /><span>Microondas</span>
-                            </div>
-                        </Modal>
+
                     </div>
                     <div className='location-container'>
                         <h3>Ubicación</h3>
@@ -103,14 +92,27 @@ const HotelDetail = () => {
                         </div>
                         <div>
                             <button className="button-services" onClick={() => setStateModalTwo(true)}>Contactar con la persona propietaria</button>
+                            
+                            <Modal state={stateModal} setState={setStateModal}>
+                                <div className='container-services'>
+                                    <Check size={24} /><span>Cocina</span>
+                                    <Check size={24} /><span>Lavavajilla</span>
+                                    <Check size={24} /><span>Sala de fitness</span>
+                                    <Check size={24} /><span>Aire acondicionado</span>
+                                    <Check size={24} /><span>Lavadora de ropa</span>
+                                    <Check size={24} /><span>Wi-fi</span>
+                                    <Check size={24} /><span>Oficina</span>
+                                    <Check size={24} /><span>Microondas</span>
+                                </div>
+                            </Modal>
                             <Modal state={stateModalTwo} setState={setStateModalTwo}>
-                            <div className='container-info-owner'>
-                                <h4>Telefono:</h4> 
-                                <span>+54 0343 4785943</span>
-                                <h4>E-mail:</h4>
-                                <span>juanperez@gmail.com</span>
-                            </div>
-                        </Modal>
+                                <div className='container-info-owner'>
+                                    <h4>Telefono:</h4>
+                                    <span>+54 0343 4785943</span>
+                                    <h4>E-mail:</h4>
+                                    <span>juanperez@gmail.com</span>
+                                </div>
+                            </Modal>
                         </div>
                     </div>
                     <div className='spacer'></div>

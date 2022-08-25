@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import React, { useState } from "react"
-import { Form, Button, Alert, Container } from 'react-bootstrap'
+import { Form, Alert, Container } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.css';
 import './propiedad.css'
 

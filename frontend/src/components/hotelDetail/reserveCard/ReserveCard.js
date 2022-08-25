@@ -42,7 +42,9 @@ const ReserveCard = () => {
                 onClick={fillHeart}/>
             </div>
             <div className='container-inputs'>
-                <ReservePicker />
+                <div>
+                    <ReservePicker />
+                </div>
                 <input type="number" placeholder="Personas" min="1" max="10"/>
                 <button className='button-reserve'>Reservar</button>
             </div>

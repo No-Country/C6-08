@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react"
 import Container from 'react-bootstrap/esm/Container';
-import { Row, Card, Button, Col } from 'react-bootstrap'
+import { Row, Card, Col } from 'react-bootstrap'
 import { HeartStraight } from 'phosphor-react';
 import { Link } from "react-router-dom"
 import DatePicker from 'react-datepicker';
-import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav'
 import "react-datepicker/dist/react-datepicker.css";
 import "./hotelFav.css"
 
@@ -58,7 +56,9 @@ const HotelFav = () => {
     <div className="container-favs-page">
       <div>
         <div className="container-search">
-          <ReservePicker/>
+          <div>
+            <ReservePicker/>
+          </div>
           <button className="button-fav-search">Comprobar disponibilidad</button>
         </div>
 
