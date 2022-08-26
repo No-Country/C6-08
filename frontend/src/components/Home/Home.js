@@ -1,14 +1,14 @@
 // import { Button, Form, Row } from 'react-bootstrap';
 import React from 'react';
 import HeroImage from './heroImage';
-import SearchForm from './searchForm';
+import SearchForm from './search/searchForm';
 import './css/home.css';
 
 const Home = () => {
   return (
-    <section className="home">
+    <section id="home-container">
       <HeroImage />
-      <SearchForm />
+      <SearchForm/>
     </section>
   );
 };

@@ -1,5 +1,5 @@
 /*------------------------------------- ESTILOS DEL HOME ---------------------------------------------------*/
-.home {
+#home-container {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -8,7 +8,7 @@
 
 .carousel-item {
   height: 50vh;
-  min-height: 320px;
+  min-height: 530px;
 }
 
 .carousel-item img {
@@ -17,6 +17,20 @@
   min-height: inherit;
   object-fit: fill;
   object-position: center;
+}
+
+.date-weather-advice-home {
+  text-align: center;
+  color: #f00;
+}
+
+#date-picker-home {
+  padding: .5rem;
+  border-radius: 5px;
+}
+
+#dropdown-item-home:hover {
+  background-color: #fff;
 }
 
 #search-form-container {
