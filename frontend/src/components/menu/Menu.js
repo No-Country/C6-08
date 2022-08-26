@@ -13,12 +13,12 @@ function Menu() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
             <div className='container-links'>
-              <Nav.Link href="#favs" as={Link} to="/favs">
+              <Link href="#favs" to="/favs">
                 <FaRegHeart className="me-2" />
                 Alojamientos Guardados
-              </Nav.Link>
-              <a href="/login" className='button-account'>Mi cuenta</a>
-              <a href="/propiedad" className='button-property'> Anuncia tu propiedad </a>
+              </Link>
+              <Link href="#login" to="/login" className='button-account'>Mi cuenta</Link>
+              <Link href="#propiedad" to="/propiedad" className='button-property'> Anuncia tu propiedad </Link>
             </div>
           </Nav>
         </Navbar.Collapse>

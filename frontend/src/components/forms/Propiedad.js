@@ -106,11 +106,11 @@ const Propiedad = () => {
         <Form.Group className="mb-3" controlId="formBasicPlace">
           <h4 className="property-title">Lugar</h4>
           <div className="container-location">
-          <input placeholder="Pais" type="text" className="property-input" {...register("location", { required: true })} />
-          <input placeholder="Provincia/Estado" type="text" className="property-input" {...register("location", { required: true })} />
-          <input placeholder="Ciudad" type="text" className="property-input" {...register("location", { required: true })} />
-          <input placeholder="Direccion" type="text" className="property-input" {...register("location", { required: true })} />
-          <input placeholder="Codigo Postal" type="number" className="property-input" {...register("location", { required: true })} />
+          <input placeholder="Pais" type="text" className="property-input" {...register("country", { required: true })} />
+          <input placeholder="Provincia/Estado" type="text" className="property-input" {...register("state", { required: true })} />
+          <input placeholder="Ciudad" type="text" className="property-input" {...register("city", { required: true })} />
+          <input placeholder="Direccion" type="text" className="property-input" {...register("adress", { required: true })} />
+          <input placeholder="Codigo Postal" type="number" className="property-input" {...register("cp", { required: true })} />
           </div>
         </Form.Group>
 

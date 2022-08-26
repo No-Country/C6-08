@@ -38,5 +38,15 @@
 
 .container-links {
     display: flex;
+    align-items: center;
     gap: 20px;
+}
+
+.container-links a:first-child{
+    text-decoration: none;
+    color: gray;
+}
+
+.container-links a:first-child:hover{
+    color: black;
 }
