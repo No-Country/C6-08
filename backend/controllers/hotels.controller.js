@@ -12,7 +12,7 @@ const { storage } =require('../util/firebase')
 exports.getAllHotel = catchAsync(async (req, res, next) => {
   const hotel = await Hotel.findAll({
     where: { status: 'active' },
-    include: [{ model: User, attributes: { exclude: ['password'] } }]
+    // include: [{ model: User, attributes: { exclude: ['password'] } }]
   });
 
   // if (hotel.length === 0) {
@@ -38,6 +38,28 @@ exports.getHotelById = catchAsync(async (req, res, next) => {
     data: { hotel }
   });
 });
+
+exports.getHotelByUbication = async (req, res, next) => {
+  
+
+  try {
+
+    const {ubication} = req.params
+
+    let search = await Hotel.findAll({where:{status: 'active' },
+    title: new RegExp('^'+ubication+'$', "i")
+    });
+
+    res.json(search)
+
+
+  } catch (error) {
+    res.status(400).json({
+      message: 'Error in process'
+    })
+  }
+};
+
 
 exports.createHotel = catchAsync(async (req, res, next) => {
   const { title, description, quantity, price, ubication, } = req.body;

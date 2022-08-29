@@ -4,6 +4,7 @@ const {
   getAllHotel,
   createHotel,
   getHotelById,
+  getHotelByUbication,
   updateHotelPatch,
   deleteHotel
 } = require('../controllers/hotels.controller');
@@ -20,8 +21,13 @@ const { createHotelValidators,
 
 const router = express.Router();
 
+router.get('/search/:query', getHotelByUbication )
+
+
 router.use(validateSession)
-router.get('/', getAllHotel);
+router.get('/', getAllHotel)
+// router.get('/search/:query', getHotelByUbication )
+
 
 router.post('/', createHotelValidators, validateResult, createHotel);
 

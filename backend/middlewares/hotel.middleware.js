@@ -21,6 +21,8 @@ exports.hotelExists = catchAsync(async (req, res, next) => {
   next();
 });
 
+
+
 exports.hotelOwner = catchAsync(async (req, res, next) => {
   // Get current session user's id
   const { currentUser, hotel } = req;
