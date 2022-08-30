@@ -1,13 +1,68 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* Estilo para las fuentes (GLOBAL) */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@300;400&display=swap');
+
+h1,h2,h3,
+h4,h5,h6{
+  font-family: 'Merriweather', serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+p, span, button, a, label{
+  font-family: 'Karla', sans-serif;
+}
+
+
+
+/*------------------------------------- ESTILOS DEL HOME ---------------------------------------------------*/
+body{
+  background: #F5F5F5;
+}
+
+.home img {
+  display: block;
+  width: 100vw;
+  height: 50vh;
+}
+
+
+.form-container {
+  width: 50rem;
+  height: 10rem;
+  background-color: #cdcdcd;
+  margin: 0 auto;
+  transform: translateY(-50%);
+  border-radius: .75rem;
+}
+
+#form {
+  display: flex;
+  height: 100%;
+}
+
+#form-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 2rem;
+  transform: translateY(8%);
+}
+
+#form-group input {
+  border: 1px solid #000;
+}
+
+#form-group button {
+  margin: 0 auto;
+  width: 80%;
+}
+
+
+/* Estilo del menu */
+.title{
+  text-align: center;
+}
+.title span{
+  color: #4D8AA0;
 }

@@ -1,0 +1,52 @@
+.button-account {
+    padding: 10px;
+    background: #3B6A7B;
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    border-radius: 4px;
+}
+
+.button-property {
+    padding: 8px;
+    background: #F5F5F5;
+    text-decoration: none;
+    color: #3B6A7B;
+    font-weight: 500;
+    border-radius: 4px;
+    border: 1px solid #3B6A7B;
+    margin-right: 15px;
+}
+
+.button-account:hover{
+    color: white;
+}
+
+.button-account:active{
+    background: #315664;
+}
+
+.button-property:hover{
+    color: #3B6A7B;
+}
+
+.button-property:active{
+    background: #b8b8b8;
+    color: #4c8da4;
+    border-color: #4c8da4;
+}
+
+.container-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.container-links a:first-child{
+    text-decoration: none;
+    color: gray;
+}
+
+.container-links a:first-child:hover{
+    color: black;
+}
