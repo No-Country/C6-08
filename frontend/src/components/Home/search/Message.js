@@ -7,7 +7,9 @@ const Message = ({msg,bgColor}) => {
         textAlign: "center",
         color: "#fff",
         fontWeight: "bold",
-        backgroundColor: bgColor
+        backgroundColor: bgColor,
+        margin: "0 auto",
+        marginTop: "1rem" 
     }
   return (
     <div style={styles}>

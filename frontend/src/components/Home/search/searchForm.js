@@ -9,17 +9,14 @@ import DatePicker from 'react-datepicker';
 
 const initialForm = {
   search: '',
-  // date: new Date().toDateString(),
 };
 
-const SearchForm = () => {
+const SearchForm = ({handleSearch, loading, error}) => {
+
   const [contadorAdultos, setContadorAdultos] = useState(0);
   const [contadorNinios, setContadorNinios] = useState(0);
   const [contadorHabitaciones, setContadorHabitaciones] = useState(0);
-  const [loading, setLoading] = useState(false);
-  const [error, seterror] = useState(null);
-  const [search, setSearch] = useState(null);
-  const [cardssearch, setCardssearch] = useState(null);
+  /*const [cardssearch, setCardssearch] = useState(null);*/
   const [form, setForm] = useState(initialForm);
   const [dateRange, setDateRange] = useState([null, null]);
   const [startDate, endDate] = dateRange;
@@ -46,9 +43,7 @@ const SearchForm = () => {
       ? setContadorHabitaciones(contadorHabitaciones - 1)
       : contadorHabitaciones;
 
-  const handleSearch = data => {
-    console.log(data);
-  };
+  
   const handleChange = (e) => {
     setForm({
       ...form,
@@ -57,6 +52,18 @@ const SearchForm = () => {
     
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!form.search) {
+      alert("Debes completar el formulario para realizar la búsqueda");
+      return;
+    }
+
+    handleSearch(form);
+    setForm(initialForm);
+  }
+
   return (
     <>
       <Container id="search-form-container">
@@ -64,7 +71,7 @@ const SearchForm = () => {
           <Col>
             <div className="form-container-home-search">
               <h2>Encuentra alojamiento ideal para tus vacaciones</h2>
-              <Form className="form" id="form-home-search">
+              <Form className="form" id="form-home-search" onSubmit={handleSubmit}>
                 <Form.Group className="form-group" id="form-group-home-search">
                   <Row>
                     <Col className="d-flex">
@@ -73,6 +80,7 @@ const SearchForm = () => {
                         type="search"
                         name="search"
                         placeholder='Prueba con "Bariloche"'
+                        
                         onChange={handleChange}
                         value={form.search}
                       ></Form.Control>
@@ -90,11 +98,9 @@ const SearchForm = () => {
                         selectsRange={true}
                         startDate={startDate}
                         endDate={endDate}
-                        onChange={
-                          (update => {
-                            setDateRange(update);
-                          })
-                        }
+                        onChange={update => {
+                          setDateRange(update);
+                        }}
                         placeholderText="Elige tu rango de fechas"
                         showMonthDropdown
                         showDisabledMonthNavigation
@@ -138,7 +144,7 @@ const SearchForm = () => {
                             </Button>
                             <small>(+18 a&ntilde;os - Hasta 10 adultos)</small>
                           </Dropdown.Item>
-                          <Dropdown.Item href="#">
+                          <Dropdown.Item href="#" id="dropdown-item-home">
                             <Baby size={24} className="me-2" />
                             Niños:
                             <Button variant="default" className="ms-4 me-2" onClick={sumarNinios}>
@@ -150,7 +156,7 @@ const SearchForm = () => {
                             </Button>
                             <small>(0-17 a&ntilde;os - Hasta 10 ni&ntilde;os)</small>
                           </Dropdown.Item>
-                          <Dropdown.Item href="#">
+                          <Dropdown.Item href="#" id="dropdown-item-home">
                             <Bed size={24} className="me-2" />
                             Habitaciones:
                             <Button
@@ -179,7 +185,7 @@ const SearchForm = () => {
                       Habitaciones: {contadorHabitaciones}
                     </small>
                   </Row>
-                  <Button variant="primary" className="search-button">
+                  <Button type='submit' variant="primary" className="search-button">
                     Buscar
                   </Button>
                 </Form.Group>
@@ -193,6 +199,8 @@ const SearchForm = () => {
         /*msg={`Error ${error.status}: ${error.statusText}`}*/
         }
       </Container>
+      {/* <Loader /> */}
+      {/* <Message msg="Ocurrió un error al realizar la búsqueda" bgColor="#dc3545" /> */}
     </>
   );
 };

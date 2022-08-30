@@ -8,11 +8,9 @@ const Page404 = () => {
         <span className="p404">404</span>
         <p>Lo sentimos... la página que buscas no existe</p>
       </h2>
-
       <a href="/" className="">
-        Llévame al home 🚀
+        Llévame al home <span role="img" aria-label='rocket'>🚀</span>
       </a>
-      
     </div>
   );
 }
