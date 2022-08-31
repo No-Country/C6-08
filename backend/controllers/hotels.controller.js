@@ -1,4 +1,5 @@
-const { ref, uploadBytes } =require('firebase/storage')
+const { ref, uploadBytes } =require('firebase/storage');
+const { Checkboxes } = require('../models/checkboxes.model');
 //Models
 const { Hotel } = require('../models/hotel.model');
 const { User } = require('../models/users.model');
@@ -12,7 +13,9 @@ const { storage } =require('../util/firebase')
 exports.getAllHotel = catchAsync(async (req, res, next) => {
   const hotel = await Hotel.findAll({
     where: { status: 'active' },
+    include: [{ model: Checkboxes, }]
     // include: [{ model: User, attributes: { exclude: ['password'] } }]
+
   });
 
   // if (hotel.length === 0) {
@@ -40,18 +43,15 @@ exports.getHotelById = catchAsync(async (req, res, next) => {
 });
 
 exports.getHotelByUbication = async (req, res, next) => {
-  
 
   try {
 
     const {ubication} = req.params
-
     let search = await Hotel.findAll({where:{status: 'active' },
     title: new RegExp('^'+ubication+'$', "i")
     });
 
     res.json(search)
-
 
   } catch (error) {
     res.status(400).json({
@@ -62,12 +62,12 @@ exports.getHotelByUbication = async (req, res, next) => {
 
 
 exports.createHotel = catchAsync(async (req, res, next) => {
-  const { title, description, quantity, price, ubication, } = req.body;
+  const { title, description, quantity, price, ubication, imgUrl} = req.body;
   const { id } = req.currentUser;
 
   //Upload img to Cloud storage(firebase)
-  // const imgRef = ref(storage, `imgs/${Date.now()}-${req.file.originalname}`);
-  // const result = await uploadBytes(imgRef, req.file.buffer);
+  const imgRef = ref(storage, `imgs/${Date.now()}-${req.file.originalname}`);
+  const result = await uploadBytes(imgRef, req.file.buffer);
 
   const newHotel = await Hotel.create({
     title,
@@ -75,7 +75,7 @@ exports.createHotel = catchAsync(async (req, res, next) => {
     quantity,
     price,
     ubication,
-    // imgUrl: result.metadata.fullPath,
+    imgUrl: result.metadata.fullPath,
     userId: id
   });
 
@@ -119,3 +119,5 @@ exports.deleteHotel = catchAsync(async (req, res, next) => {
       message: `The product id ${hotel.id} was update correctly`
     });
 });
+
+

@@ -19,6 +19,8 @@ const { createHotelValidators,
   validateResult 
 } = require('../middlewares/validators.middleware');
 
+const { upload } = require('../util/multer');
+
 const router = express.Router();
 
 router.get('/search/:query', getHotelByUbication )
@@ -29,7 +31,9 @@ router.get('/', getAllHotel)
 // router.get('/search/:query', getHotelByUbication )
 
 
-router.post('/', createHotelValidators, validateResult, createHotel);
+// router.post('/', createHotelValidators, validateResult, createHotel);
+router.post('/',upload.single('imgUrl'), createHotel);
+
 
 router.use('/:id', hotelExists)
       .route('/:id')
