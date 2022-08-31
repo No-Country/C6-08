@@ -25,17 +25,18 @@ Si deseas puedes probar el funcionamiento del sitio desde el siguiente link:
 -
 
 ### Lenguajes y herramientas de Frontend:
+- HTML.
+- CSS.
+- Bootstrap.
+- JavaScript.
 - ReactJs.
--
--
--
--
+
 
 ### Lenguajes y herramientas de Backend:
 - NodeJs.
 - Express.
 - MongoDB.
-- sequelize.
+- Sequelize.
 -
 
 ## ✔️ Roles
