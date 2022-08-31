@@ -1,4 +1,4 @@
-import Home from './home/Home'
+import Home from './Home/Home'
 import Login from './forms/Login'
 import HotelDetail from './hotelDetail/HotelDetail'
 import HotelFav from './hotel/HotelFav'
@@ -9,7 +9,6 @@ import {
   Route,
 } from "react-router-dom"
 import React  from 'react'; 
-
 
 function Public() {
   return (
