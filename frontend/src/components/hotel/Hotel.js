@@ -5,22 +5,38 @@ import { HeartStraight } from 'phosphor-react';
 import { Link } from "react-router-dom"
 import "./hotelFav.css"
 
-const Hotel = () => {
+const Hotel = (props) => {
   const [listadoHoteles, setListadoHoteles] = useState([])
+  const {search} = props
 
   useEffect(
     () => {
-      fetch("")
+      fetch('https://hotelc608back.herokuapp.com/api/v1/hotel/search/'+search)
         .then(res => res.json())
         .then(data => {
-          setListadoHoteles(data.results)
+          console.log(data.ubication);
+          setListadoHoteles(data.ubication);
         })
         .catch(e => {
-          console.log(e)
-        })
+          console.log(e);
+        });
     },
-    []
+    [search]
   )
+  // useEffect(
+  //   () => {
+  //     fetch('https://hotelc608back.herokuapp.com/api/v1/hotel/search/'+search)
+  //       .then(res => res.json())
+  //       .then(data => {
+  //         console.log(data.ubication);
+  //         setListadoHoteles(data.ubication);
+  //       })
+  //       .catch(e => {
+  //         console.log(e);
+  //       });
+  //   },
+  //   [search]
+  // )
 
   
   const [active, setActive] = useState(false);
@@ -31,35 +47,39 @@ const Hotel = () => {
   return (
     <section className="home">
       <div id="contenedor">
-          <div>
+        <div>
           <Container>
-          <h1>Alojamientos Guardados</h1>
-          <Row>
-          {listadoHoteles.map(listadoHotel =>
-            <Col >
-              <Card id="card">
-                <Card.Img variant="top" src={""} 
-                  id="img" />
-                <HeartStraight size={28} weight={active ? "fill" : null}
-                    className={`favorite ${active ? "favorite-active" : null}`}
-                    onClick={fillHeart} id="corazon"/>
-                <Card.Body >
-                  <Card.Text >
-                    <div id="contenido">
-                      <Card.Title as={Link} to={'/detail/'} style={{ maxHeight: "25px" }}><h4 >Hotel</h4></Card.Title>
-                      <h4>$precio</h4>
-                    </div>
-                    <h5>ubicacion</h5>
-                    <h5>tags</h5>
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-            </Col>
-          )}
-          
-          </Row>      
-        </Container>
-          </div>
+            <h1>Alojamientos Guardados</h1>
+            <Row>
+              {(listadoHoteles || []).map(listadoHotel => (
+                <Col>
+                  <Card id="card">
+                    <Card.Img variant="top" src={''} id="img" />
+                    <HeartStraight
+                      size={28}
+                      weight={active ? 'fill' : null}
+                      className={`favorite ${active ? 'favorite-active' : null}`}
+                      onClick={fillHeart}
+                      id="corazon"
+                    />
+                    <Card.Body>
+                      <Card.Text>
+                        <div id="contenido">
+                          <Card.Title as={Link} to={'/detail/'} style={{ maxHeight: '25px' }}>
+                            <h4>{listadoHotel.title}</h4>
+                          </Card.Title>
+                          <h4>${listadoHotel.price}</h4>
+                        </div>
+                        <h5>{listadoHotel.ubication}</h5>
+                        <h5>tags</h5>
+                      </Card.Text>
+                    </Card.Body>
+                  </Card>
+                </Col>
+              ))}
+            </Row>
+          </Container>
+        </div>
         {/*
         <Container>
           <h1>Hoteles Favoritos:</h1>
@@ -109,7 +129,6 @@ const Hotel = () => {
 */}
       </div>
     </section>
-
   );
 };
 

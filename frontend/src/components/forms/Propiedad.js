@@ -40,6 +40,7 @@ const Propiedad = () => {
   };
 
   return (
+
     <div className="container-property-page">
       <Container id="contenedor">
         <div className="title">

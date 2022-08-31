@@ -13,7 +13,7 @@ p, span, button, a, label{
 
 
 
-/*------------------------------------- ESTILOS DEL HOME ---------------------------------------------------*/
+/* ------------------------------------- ESTILOS DEL HOME ---------------------------------------------------
 body{
   background: #F5F5F5;
 }
@@ -23,7 +23,6 @@ body{
   width: 100vw;
   height: 50vh;
 }
-
 
 .form-container {
   width: 50rem;
@@ -56,13 +55,13 @@ body{
 #form-group button {
   margin: 0 auto;
   width: 80%;
-}
+} */
 
 
 /* Estilo del menu */
-.title{
+.title {
   text-align: center;
 }
-.title span{
+.title span {
   color: #4D8AA0;
 }
