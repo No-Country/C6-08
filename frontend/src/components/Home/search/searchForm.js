@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container, Button, Form, Row, Col, Dropdown } from 'react-bootstrap';
 import { MapPin, Users, Calendar, User, Minus, Plus, Baby, Bed } from 'phosphor-react';
 import Loader from './Loader';
@@ -11,15 +11,18 @@ const initialForm = {
   search: '',
 };
 
-const SearchForm = ({handleSearch, loading, error}) => {
+const SearchForm = ({handleSearch}) => {
 
   const [contadorAdultos, setContadorAdultos] = useState(0);
   const [contadorNinios, setContadorNinios] = useState(0);
   const [contadorHabitaciones, setContadorHabitaciones] = useState(0);
+  const [loading, setLoading] = useState(false);
+  const [error, seterror] = useState(null);
   /*const [cardssearch, setCardssearch] = useState(null);*/
   const [form, setForm] = useState(initialForm);
   const [dateRange, setDateRange] = useState([null, null]);
   const [startDate, endDate] = dateRange;
+
 
   const sumarAdultos = () =>
     contadorAdultos <= 9 ? setContadorAdultos(contadorAdultos + 1) : contadorAdultos;
@@ -43,7 +46,9 @@ const SearchForm = ({handleSearch, loading, error}) => {
       ? setContadorHabitaciones(contadorHabitaciones - 1)
       : contadorHabitaciones;
 
-  
+ 
+
+
   const handleChange = (e) => {
     setForm({
       ...form,
@@ -80,7 +85,6 @@ const SearchForm = ({handleSearch, loading, error}) => {
                         type="search"
                         name="search"
                         placeholder='Prueba con "Bariloche"'
-                        
                         onChange={handleChange}
                         value={form.search}
                       ></Form.Control>
@@ -185,7 +189,7 @@ const SearchForm = ({handleSearch, loading, error}) => {
                       Habitaciones: {contadorHabitaciones}
                     </small>
                   </Row>
-                  <Button type='submit' variant="primary" className="search-button">
+                  <Button type="submit" variant="primary" className="search-button">
                     Buscar
                   </Button>
                 </Form.Group>
@@ -193,12 +197,11 @@ const SearchForm = ({handleSearch, loading, error}) => {
             </div>
           </Col>
         </Row>
-
+      </Container>
         {loading && <Loader />}
         {error && <Message msg="Ocurrió un error al realizar la búsqueda" bgColor="#dc3545" />
         /*msg={`Error ${error.status}: ${error.statusText}`}*/
         }
-      </Container>
       {/* <Loader /> */}
       {/* <Message msg="Ocurrió un error al realizar la búsqueda" bgColor="#dc3545" /> */}
     </>
