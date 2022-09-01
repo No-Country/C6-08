@@ -17,13 +17,19 @@ const Propiedad = () => {
     console.log('Form', data);
     const ubicacion = data.country + ', ' + data.state + ', ' + data.city + ', '+ data.adress + ', ' + data.cp;
     const datos = {
-      title: data.title,
-      description: data.description,
-      quantity: "0",
-      price: data.price,
-      ubication: ubicacion,
-      images: ""
-    }
+        title: data.title,
+        description: data.description,
+        price: data.price,
+        country: data.country,
+        city: data.city,
+        adress:  data.adress,
+        cp: data.cp,
+        state: data.state,
+        photo: data.photo,
+        id: parseInt(data.id)
+        // ubication: ubicacion,
+        // images: ""
+      }
 
     try {
 
@@ -69,6 +75,11 @@ const Propiedad = () => {
               type="text"
               className="property-input"
               {...register('title', { required: true })}
+            />
+            <input 
+              type="text" 
+              value={1} 
+              {...register('id', { required: true })} 
             />
           </Form.Group>
 
