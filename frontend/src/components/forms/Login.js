@@ -13,46 +13,44 @@ function Login() {
   } = useForm();
   const [alert, setAlert] = useState({ variant: '', text: '' });
 
-  const onSubmit1 = async (data) => {
+  const onSubmit1 = async data => {
     console.log('Form', data);
     try {
-        
-        const user = await fetch('https://hotelc608back.herokuapp.com/api/v1/user').loginUser().then(
-            (res) => {
-                res.email = data.email;
-                res.password = data.password;
-            }
-        )
+      const user = await fetch('https://hotelc608back.herokuapp.com/api/v1/user')
+        .loginUser()
+        .then(res => {
+          res.email = data.email;
+          res.password = data.password;
+          console.log(res);
+        });
 
-        if (user) {           
-            setAlert({ variant: 'success', text: 'Welcome!' });
-            setInterval(() => {
-              window.open('/', '_self');
-            }, 1000);
-        } 
+      if (user) {
+        setAlert({ variant: 'success', text: 'Welcome!' });
+        setInterval(() => {
+          window.open('/', '_self');
+        }, 1000);
+      }
     } catch (error) {
-        console.log(error);
+      console.log(error);
     }
   };
 
-  const onSubmit2 = (data) => {
+  const onSubmit2 = data => {
     console.log('Form', data);
     if (data.password1 !== data.password2) {
       setAlert({ variant: 'danger', text: 'No es la misma contraseña' });
     } else {
-      
-        let name = data.nombre + ' ' + data.apellido;
+      let name = data.nombre + ' ' + data.apellido;
 
       useEffect(() => {
-        
-        fetch('https://hotelc608back.herokuapp.com/api/v1/user').createUser()
-        .then((res) => {
+        fetch('https://hotelc608back.herokuapp.com/api/v1/user/')
+          .createUser()
+          .then(res => {
             res.userName = name;
             res.email = data.email;
             res.password = data.password1;
             console.log(res);
-        })
-
+          });
       }, []);
 
       setAlert({ variant: 'success', text: 'Formulario enviado con exito!' });
