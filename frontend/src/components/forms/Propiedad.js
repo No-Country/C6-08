@@ -11,31 +11,43 @@ const Propiedad = () => {
     formState: { errors },
   } = useForm();
   const [alert, setAlert] = useState({ variant: '', text: '' });
+  const [hotel, setHotel] = useState(false);
 
   const onSubmit = async (data) => {
     console.log('Form', data);
     const ubicacion = data.country + ', ' + data.state + ', ' + data.city + ', '+ data.adress + ', ' + data.cp;
+    const datos = {
+      title: data.title,
+      description: data.description,
+      quantity: "0",
+      price: data.price,
+      ubication: ubicacion,
+      images: ""
+    }
 
     try {
 
-      const hotel = await fetch('https://hotelc608back.herokuapp.com/api/v1/hotel')
-        .loginUser()
-        .then(res => {
-          res.title = data.title;
-          res.price = data.price;
-          res.description = data.description;
-          res.ubication = ubicacion;
-          // res.pictures = data.photo;
-        });
+         const requestOptions = {
+           method: 'POST',
+           headers: { 'Content-Type': 'application/json' },
+           mode: 'cors',
+           body: JSON.stringify(datos),
+         };
 
-      if (hotel) {
-        setAlert({ variant: 'success', text: 'Datos Guardados' });
-        setInterval(() => {
-          window.open('/', '_self');
-        }, 1000);
-      }
+         let res = await fetch('https://hotelc608back.herokuapp.com/api/v1/hotel', requestOptions);
+         let json = await res.json();
+         setHotel(true);
+         console.log(json);
+
     } catch (error) {
       console.log(error);
+    }
+
+    if (hotel) {
+      setAlert({ variant: 'success', text: 'Datos Guardados' });
+      setInterval(() => {
+        window.open('/', '_self');
+      }, 1000);
     }
   };
 

@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { Alert, Container } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import './login.css';
+import { helpHttp } from '../../helpers/helpHttp';
 
 function Login() {
   const [formulario, setFormulario] = useState(false);
@@ -12,52 +13,65 @@ function Login() {
     formState: { errors },
   } = useForm();
   const [alert, setAlert] = useState({ variant: '', text: '' });
+  const [user, setUser] = useState(false);
 
   const onSubmit1 = async data => {
-    console.log('Form', data);
+    // console.log('Form', data);
     try {
-      const user = await fetch('https://hotelc608back.herokuapp.com/api/v1/user')
-        .loginUser()
-        .then(res => {
-          res.email = data.email;
-          res.password = data.password;
-          console.log(res);
-        });
+      const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        mode: 'cors',
+        body: JSON.stringify(data),
+      };
+         let res = await fetch('https://hotelc608back.herokuapp.com/api/v1/user/login',requestOptions);
+         let json = await res.json();
+      setUser(true);
 
-      if (user) {
-        setAlert({ variant: 'success', text: 'Welcome!' });
-        setInterval(() => {
-          window.open('/', '_self');
-        }, 1000);
-      }
     } catch (error) {
       console.log(error);
     }
-  };
 
-  const onSubmit2 = data => {
-    console.log('Form', data);
-    if (data.password1 !== data.password2) {
-      setAlert({ variant: 'danger', text: 'No es la misma contraseña' });
-    } else {
-      let name = data.nombre + ' ' + data.apellido;
-
-      useEffect(() => {
-        fetch('https://hotelc608back.herokuapp.com/api/v1/user/')
-          .createUser()
-          .then(res => {
-            res.userName = name;
-            res.email = data.email;
-            res.password = data.password1;
-            console.log(res);
-          });
-      }, []);
-
-      setAlert({ variant: 'success', text: 'Formulario enviado con exito!' });
+    if (user) {
+      setAlert({ variant: 'success', text: 'Welcome!' });
       setInterval(() => {
         window.open('/', '_self');
       }, 1000);
+    }else{
+      setAlert({ variant: 'danger', text: 'Usuario no encontrado' });
     }
+  };
+
+  const onSubmit2 = async data => {
+    console.log('Form', data);
+    if (data.password !== data.password2) {
+      setAlert({ variant: 'danger', text: 'No es la misma contraseña' });
+    } else {
+      try {
+        let username = data.nombre + ' ' + data.apellido;
+        const datos = {
+          userName: username,
+          email: data.email,
+          password: data.password  
+        }
+        const requestOptions = {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          mode: "cors",
+          body: JSON.stringify(datos),
+        };
+        let res = await fetch('https://hotelc608back.herokuapp.com/api/v1/user/', requestOptions);
+        let json = await res.json();
+        console.log(json);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    setAlert({ variant: 'success', text: 'Formulario enviado con exito!' });
+    // setInterval(() => {
+    //   window.open('/', '_self');
+    // }, 1000);
   };
 
   function login(e) {
@@ -122,7 +136,7 @@ function Login() {
                   type="text"
                   placeholder="Nombre"
                   className="login-input"
-                  {...register('nombre', { required: true })}
+                  {...register('userName', { required: true })}
                 />
                 <input
                   type="text"
@@ -143,7 +157,7 @@ function Login() {
                 type="password"
                 placeholder="Contraseña"
                 className="login-input"
-                {...register('password1', { required: true })}
+                {...register('password', { required: true })}
               />
               <input
                 id="password2Id"

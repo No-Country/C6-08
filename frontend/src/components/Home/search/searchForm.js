@@ -46,8 +46,6 @@ const SearchForm = ({handleSearch}) => {
       ? setContadorHabitaciones(contadorHabitaciones - 1)
       : contadorHabitaciones;
 
- 
-
 
   const handleChange = (e) => {
     setForm({

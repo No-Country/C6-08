@@ -14,8 +14,8 @@ const Hotel = (props) => {
       fetch('https://hotelc608back.herokuapp.com/api/v1/hotel/search/'+search)
         .then(res => res.json())
         .then(data => {
-          console.log(data.ubication);
-          setListadoHoteles(data.ubication);
+          console.log(data);
+          setListadoHoteles(data);
         })
         .catch(e => {
           console.log(e);
