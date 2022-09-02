@@ -2,7 +2,7 @@
 
 Esta aplicación web será un sitio de reservas de 
 alojamientos en hoteles para usuarios que amen 
-viajar 🚀 y encontrar el mejor alojamiento al menor costo 
+viajar 🚀 y deseen encontrar el mejor alojamiento al menor costo
 que se adapte a sus necesidades.
 
 ## ✔️ Contenido General del Sitio:
@@ -21,23 +21,19 @@ Si deseas puedes probar el funcionamiento del sitio desde el siguiente link:
 
 ### Diseño:
 - Figma.
--
--
 
 ### Lenguajes y herramientas de Frontend:
 - HTML.
 - CSS.
-- Bootstrap.
+- React-bootstrap.
 - JavaScript.
 - ReactJs.
-
 
 ### Lenguajes y herramientas de Backend:
 - NodeJs.
 - Express.
-- MongoDB.
 - Sequelize.
--
+- Swagger.
 
 ## ✔️ Roles
 
