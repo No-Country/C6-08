@@ -19,7 +19,7 @@ function Public() {
       <Route path="/propiedad" element={<Propiedad />} />
       <Route path="/hotel" /*'/propiedad/:busqueda'*/ element={<Hotel />} />
       <Route path="/" element={<Home />} />
-      <Route path="/detail" /*'/Detail/:id'*/ element={<HotelDetail />} />
+      <Route path=/*"/detail"*/'/Detail/:id' element={<HotelDetail />} />
       <Route path="*" element={<Page404 />} />
     </Routes>
   );

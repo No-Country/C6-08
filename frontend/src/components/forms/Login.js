@@ -48,9 +48,9 @@ function Login() {
       setAlert({ variant: 'danger', text: 'No es la misma contraseña' });
     } else {
       try {
-        let username = data.nombre + ' ' + data.apellido;
+        let userName = data.nombre + ' ' + data.apellido;
         const datos = {
-          userName: username,
+          username: userName,
           email: data.email,
           password: data.password  
         }

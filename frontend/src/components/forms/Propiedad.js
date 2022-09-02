@@ -13,46 +13,63 @@ const Propiedad = () => {
   const [alert, setAlert] = useState({ variant: '', text: '' });
   const [hotel, setHotel] = useState(false);
 
-  const onSubmit = async (data) => {
-    console.log('Form', data);
-    const ubicacion = data.country + ', ' + data.state + ', ' + data.city + ', '+ data.adress + ', ' + data.cp;
-    const datos = {
-      title: data.title,
-      description: data.description,
-      quantity: "0",
-      price: data.price,
-      ubication: ubicacion,
-      images: ""
-    }
-
+  const onSubmit = async data => {
+    // const ubicacion = data.country + ', ' + data.state + ', ' + data.city + ', '+ data.adress + ', ' + data.cp;
+    // const nameimg = document.getElementById('img-property').files[0].name;
+    // console.log(nameimg);
     try {
+      const datos = {
+        title: data.title,
+        description: data.description,
+        price: data.price,
+        country: data.country,
+        city: data.city,
+        adress: data.adress,
+        cp: data.cp,
+        state: data.state,
+        photo: data.photo,
+        id: parseInt(data.id),
+        // ubication: ubicacion,
+        // images: ""
+      };
+      let formData = new FormData();
+      formData.append('title', data.title);
+      formData.append('description', data.description);
+      formData.append('price', data.price);
+      formData.append('country', data.country);
+      formData.append('city', data.city);
+      formData.append('adress', data.adress);
+      formData.append('cp', data.cp);
+      formData.append('state', data.state);
+      formData.append('photo', data.photo);
+      formData.append('id', parseInt(data.id));
 
-         const requestOptions = {
-           method: 'POST',
-           headers: { 'Content-Type': 'application/json' },
-           mode: 'cors',
-           body: JSON.stringify(datos),
-         };
+      const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'multipart/form-data' },
+        mode: 'cors',
+        body: formData,
+      };
 
-         let res = await fetch('https://hotelc608back.herokuapp.com/api/v1/hotel', requestOptions);
-         let json = await res.json();
-         setHotel(true);
-         console.log(json);
-
+      console.log(data);
+      console.log(datos);
+      let res = await fetch('https://hotelc608back.herokuapp.com/api/v1/hotel', requestOptions);
+      let json = await res.json();
+      setHotel(true);
+      console.log(json);
     } catch (error) {
       console.log(error);
     }
 
-    if (hotel) {
-      setAlert({ variant: 'success', text: 'Datos Guardados' });
-      setInterval(() => {
-        window.open('/', '_self');
-      }, 1000);
-    }
+    // if (hotel) {
+    //   setAlert({ variant: 'success', text: 'Datos Guardados' });
+    //   setInterval(() => {
+    //     window.open('/', '_self');
+    //   }, 1000);
+    // }
   };
 
   return (
-
     <div className="container-property-page">
       <Container id="contenedor">
         <div className="title">
@@ -182,6 +199,7 @@ const Propiedad = () => {
 
           <Form.Group className="mb-3" controlId="formBasicPlace">
             <h4 className="property-title">Lugar</h4>
+            <input type="hidden" value={1} {...register('id', { required: true })} />
             <div className="container-location">
               <input
                 placeholder="Pais"
@@ -222,7 +240,7 @@ const Propiedad = () => {
               placeholder="Imagenes"
               id="img-property"
               type="file"
-              multiple
+              // multiple
               accept="image/png, .jpeg, .jpg, image/gif"
               {...register('photo', { required: true })}
             />

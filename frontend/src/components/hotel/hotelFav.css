@@ -78,12 +78,13 @@
 
 #corazon{
     position: relative;
-    top: -315px;
+    top: 0px;
+    /* top: -315px; */
     left: 0px;
+    margin: 1rem;
     border: 1px black solid;
     background-color: rgb(148, 148, 142);
 }
-
 
 #boton{
     padding: 10px;

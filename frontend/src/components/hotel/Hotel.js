@@ -54,7 +54,13 @@ const Hotel = (props) => {
               {(listadoHoteles || []).map(listadoHotel => (
                 <Col>
                   <Card id="card">
-                    <Card.Img variant="top" src={''} id="img" />
+                    <Card.Img
+                      variant="top"
+                      src={
+                        'https://firebasestorage.googleapis.com/v0/b/hotel-project-fcfea.appspot.com/o/imgs%2Fhotel_1.jpg?alt=media&token=34ebaada-1099-4e59-806d-c8df3dec2904'
+                      }
+                      id="img"
+                    />
                     <HeartStraight
                       size={28}
                       weight={active ? 'fill' : null}
@@ -65,13 +71,14 @@ const Hotel = (props) => {
                     <Card.Body>
                       <Card.Text>
                         <div id="contenido">
-                          <Card.Title as={Link} to={'/detail/'} style={{ maxHeight: '25px' }}>
+                          <Card.Title as={Link} to={'/detail/'+listadoHotel.id} style={{ maxHeight: '25px' }}>
                             <h4>{listadoHotel.title}</h4>
                           </Card.Title>
-                          <h4>${listadoHotel.price}</h4>
                         </div>
-                        <h5>{listadoHotel.ubication}</h5>
-                        <h5>tags</h5>
+                        <h6>Precio por noche: $ {listadoHotel.price}</h6>
+
+                        <h6>Ubicación: {listadoHotel.ubication}</h6>
+                        {/* <h5>tags</h5> */}
                       </Card.Text>
                     </Card.Body>
                   </Card>
