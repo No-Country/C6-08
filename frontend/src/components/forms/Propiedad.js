@@ -13,10 +13,24 @@ const Propiedad = () => {
   const [alert, setAlert] = useState({ variant: '', text: '' });
   const [hotel, setHotel] = useState(false);
 
-  const onSubmit = async data => {
+  const onSubmit = async (data) => {
+    console.log('Form', data);
     // const ubicacion = data.country + ', ' + data.state + ', ' + data.city + ', '+ data.adress + ', ' + data.cp;
-    // const nameimg = document.getElementById('img-property').files[0].name;
-    // console.log(nameimg);
+    const datos = {
+        title: data.title,
+        description: data.description,
+        price: data.price,
+        country: data.country,
+        city: data.city,
+        adress:  data.adress,
+        cp: data.cp,
+        state: data.state,
+        photo: data.photo,
+        id: parseInt(data.id)
+        // ubication: ubicacion,
+        // images: ""
+      }
+
     try {
       const datos = {
         title: data.title,
@@ -86,6 +100,11 @@ const Propiedad = () => {
               type="text"
               className="property-input"
               {...register('title', { required: true })}
+            />
+            <input 
+              type="text" 
+              value={1} 
+              {...register('id', { required: true })} 
             />
           </Form.Group>
 
