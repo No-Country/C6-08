@@ -8,7 +8,7 @@ function Menu() {
   return (
     <>
       <Navbar expand="lg">
-        <Navbar.Brand href="#home" as={Link} to="/"><h2 className='title'>Nombre<span>Empresa</span></h2></Navbar.Brand>
+        <Navbar.Brand href="#home" as={Link} to="/"><h2 className='title'>Reserva<span>Hoteles</span></h2></Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">

@@ -1,5 +1,5 @@
 {
-  "name": "frontend",
+  "name": "Sistema de reservas de hotel",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

@@ -14,7 +14,7 @@ const Propiedad = () => {
   const [hotel, setHotel] = useState(false);
 
   const onSubmit = async (data) => {
-    console.log('Form', data);
+    // console.log('Form', data);
     // const ubicacion = data.country + ', ' + data.state + ', ' + data.city + ', '+ data.adress + ', ' + data.cp;
     try {
     const datos = {
@@ -66,12 +66,12 @@ const Propiedad = () => {
         // body: formData,
       };
 
-      console.log(data);
-      console.log(datos);
+      // console.log(data);
+      // console.log(datos);
       let res = await fetch('https://hotelc608back.herokuapp.com/api/v1/hotel', requestOptions);
       let json = await res.json();
       setHotel(true);
-      console.log(json);
+      // console.log(json);
     } catch (error) {
       console.log(error);
     }
