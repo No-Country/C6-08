@@ -16,53 +16,54 @@ const Propiedad = () => {
   const onSubmit = async (data) => {
     console.log('Form', data);
     // const ubicacion = data.country + ', ' + data.state + ', ' + data.city + ', '+ data.adress + ', ' + data.cp;
-    const datos = {
-        title: data.title,
-        description: data.description,
-        price: data.price,
-        country: data.country,
-        city: data.city,
-        adress:  data.adress,
-        cp: data.cp,
-        state: data.state,
-        photo: data.photo,
-        id: parseInt(data.id)
-        // ubication: ubicacion,
-        // images: ""
-      }
-
     try {
-      const datos = {
-        title: data.title,
-        description: data.description,
-        price: data.price,
-        country: data.country,
-        city: data.city,
-        adress: data.adress,
-        cp: data.cp,
-        state: data.state,
-        photo: data.photo,
-        id: parseInt(data.id),
-        // ubication: ubicacion,
-        // images: ""
-      };
-      let formData = new FormData();
-      formData.append('title', data.title);
-      formData.append('description', data.description);
-      formData.append('price', data.price);
-      formData.append('country', data.country);
-      formData.append('city', data.city);
-      formData.append('adress', data.adress);
-      formData.append('cp', data.cp);
-      formData.append('state', data.state);
-      formData.append('photo', data.photo);
-      formData.append('id', parseInt(data.id));
+    const datos = {
+      title: data.title,
+      description: data.description,
+      price: data.price,
+      country: data.country,
+      city: data.city,
+      adress: data.adress,
+      cp: data.cp,
+      state: data.state,
+      photo: data.photo,
+      id: parseInt(data.id),
+      // ubication: ubicacion,
+      // images: ""
+    };
+
+      // const datos = {
+      //   title: data.title,
+      //   description: data.description,
+      //   price: data.price,
+      //   country: data.country,
+      //   city: data.city,
+      //   adress: data.adress,
+      //   cp: data.cp,
+      //   state: data.state,
+      //   photo: data.photo,
+      //   id: parseInt(data.id),
+      //   // ubication: ubicacion,
+      //   // images: ""
+      // };
+      // let formData = new FormData();
+      // formData.append('title', data.title);
+      // formData.append('description', data.description);
+      // formData.append('price', data.price);
+      // formData.append('country', data.country);
+      // formData.append('city', data.city);
+      // formData.append('adress', data.adress);
+      // formData.append('cp', data.cp);
+      // formData.append('state', data.state);
+      // formData.append('photo', data.photo);
+      // formData.append('id', parseInt(data.id));
 
       const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'multipart/form-data' },
         mode: 'cors',
-        body: formData,
+        body: JSON.stringify(data),
+        // body: formData,
       };
 
       console.log(data);
@@ -101,11 +102,11 @@ const Propiedad = () => {
               className="property-input"
               {...register('title', { required: true })}
             />
-            <input 
+            {/* <input 
               type="text" 
               value={1} 
               {...register('id', { required: true })} 
-            />
+            /> */}
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicPrice">
