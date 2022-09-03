@@ -122,7 +122,7 @@ const SearchForm = ({handleSearch}) => {
                     <Col className="d-flex mt-2">
                       <Users size={32} className="users-search-icon me-2" />
                       {/* <Form.Control type="text" placeholder="Personas"></Form.Control> */}
-                      <Dropdown className="d-inline mx-2" autoClose="outside">
+                      <Dropdown id="people-button" className="d-inline mx-2" autoClose="outside">
                         <Dropdown.Toggle id="dropdown-autoclose-outside" md={4}>
                           Selecciona la cantidad de personas
                         </Dropdown.Toggle>
