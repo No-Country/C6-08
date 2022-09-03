@@ -15,31 +15,31 @@ const { hotelExists,
   hotelOwner 
 } = require('../middlewares/hotel.middleware');
 
+
 const { createHotelValidators, 
   validateResult 
 } = require('../middlewares/validators.middleware');
 
-const { upload } = require('../util/multer');
+const { upload } = require('../util/multer')
 
 const router = express.Router();
 
 router.get('/search/:query', getHotelByUbication )
 
-
-router.use(validateSession)
-router.get('/', getAllHotel)
-// router.get('/search/:query', getHotelByUbication )
-
+// router.use(validateSession)
+router.get('/', getAllHotel);
 
 // router.post('/', createHotelValidators, validateResult, createHotel);
-router.post('/',upload.single('imgUrl'), createHotel);
+router.post('/',upload.single('photo'), createHotel);
 
 
 router.use('/:id', hotelExists)
       .route('/:id')
-      .get(hotelOwner, getHotelById)
+      // .get(hotelOwner, getHotelById)
+      .get(getHotelById)
       .patch( hotelOwner, updateHotelPatch)
-      .delete( hotelOwner, deleteHotel)
+      // .delete( hotelOwner, deleteHotel)
+      .delete(deleteHotel)
 
 
 module.exports = { hotelRouter: router };
