@@ -19,14 +19,15 @@ const {
   const { createUserValidators, validateResult } = require('../middlewares/validators.middleware');
   
   const router = express.Router();
+
   
   router.post('/', createUserValidators, validateResult, createUser);
 
   router.post('/login', loginUser);
   
-  router.use('/all', validateSession).get('/all', getAllUsers);
+  router.use('/all', getAllUsers)
   
-  router.use(validateSession)
+  // router.use(validateSession)
   
   router.get('/me', getAllUsersHotel); //Por validar luego de agregar productos
   

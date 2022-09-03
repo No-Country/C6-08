@@ -2,6 +2,7 @@ const { ref, uploadBytes } =require('firebase/storage')
 //Models
 const { Hotel } = require('../models/hotel.model');
 const { User } = require('../models/users.model');
+const { Checkboxes } =require('../models/checkboxes.model')
 
 // Utils
 const { catchAsync } = require('../util/catchAsync');
@@ -12,7 +13,8 @@ const { storage } =require('../util/firebase')
 exports.getAllHotel = catchAsync(async (req, res, next) => {
   const hotel = await Hotel.findAll({
     where: { status: 'active' },
-    include: [{ model: User, attributes: { exclude: ['password'] } }]
+    include: [{ model: Checkboxes, }]
+    // include: [{ model: User, attributes: { exclude: ['password'] } }]
   });
 
   // if (hotel.length === 0) {
@@ -39,22 +41,71 @@ exports.getHotelById = catchAsync(async (req, res, next) => {
   });
 });
 
+exports.getHotelByUbication = async (req, res, next) => {
+
+  // const { country } = req.params;
+  // const countrySelect = await Hotel.findOne({
+  //   where: {country, status: 'active'},
+  //   title: new RegExp('^'+country+'$', "i")
+
+  // });
+  // res.status(200).json({
+  //   status: 'succes',
+  //   data: {
+  //     countrySelect
+  //   }
+  // })
+
+
+  // const { country } =req.params;
+  // const search =Hotel.find( user => {
+  //   let isValid = true;
+  //   for(key in country){
+  //     console.log(key, user[key], filters[key]);
+  //     isValid = isValid && user[key] == filters[key]
+  //   }
+  //   return isValid
+  // })
+  // res.send(search);
+  try {
+
+    const {country} = req.params
+    let search = await Hotel.findOne({where:{status: 'active' },
+    title: new RegExp('^'+country+'$', "i")
+    });
+
+    res.json(search)
+
+  } catch (error) {
+    res.status(400).json({
+      message: 'Error in process'
+    })
+  }
+};
+
 exports.createHotel = catchAsync(async (req, res, next) => {
-  const { title, description, quantity, price, ubication, } = req.body;
-  const { id } = req.currentUser;
+  const { title, description, price, country, city, adress, cp, state, photo, id } = req.body;
+
+  // const { id } = req.params
+  // const { id } = req.currentUser;
 
   //Upload img to Cloud storage(firebase)
-  // const imgRef = ref(storage, `imgs/${Date.now()}-${req.file.originalname}`);
-  // const result = await uploadBytes(imgRef, req.file.buffer);
+  console.log(req.file.originalname);
+  const imgRef = ref(storage, `imgs/${Date.now()}-${req.file.originalname}`);
+  
+  const result = await uploadBytes(imgRef, req.file.buffer);
 
   const newHotel = await Hotel.create({
     title,
     description,
-    quantity,
     price,
-    ubication,
-    // imgUrl: result.metadata.fullPath,
-    userId: id
+    country,
+    city,
+    adress,
+    cp, 
+    state,
+    photo: result.metadata.fullPath,
+    userId: +id
   });
 
   res.status(201).json({
@@ -67,13 +118,16 @@ exports.updateHotelPatch = catchAsync(async (req, res, next) => {
   const { hotel } = req;
 
   const data = filterObject(
-    req.body,
+    'req.body',
     'title',
     'description',
-    'quantity',
     'price',
-    'ubication',
-    'images'
+    'country',
+    'city',
+    'adress',
+    'cp', 
+    'state',
+    'photo'
     // id: product.userId
   );
 
